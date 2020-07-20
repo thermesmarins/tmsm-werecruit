@@ -1,0 +1,365 @@
+#tmsm-werecruit-calendar {
+  padding: 2px;
+  color: #333333;
+  background: #ffffff;
+}
+#tmsm-werecruit-calendar.calendar-small .hide-small {
+  display: none;
+}
+#tmsm-werecruit-calendar.calendar-small .clndr-controls {
+  font-size: 15px;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-calendar.calendar-small .clndr-controls {
+    font-size: 19px;
+  }
+}
+#tmsm-werecruit-calendar.calendar-small .clndr-controls td {
+  padding: 5px;
+}
+#tmsm-werecruit-calendar.calendar-small .day {
+  font-size: 13px;
+  border: 1px solid #ffffff;
+}
+#tmsm-werecruit-calendar.calendar-small .cell {
+  padding: 4px 3px 4px 3px;
+}
+#tmsm-werecruit-calendar.calendar-large .hide-large {
+  display: none;
+}
+#tmsm-werecruit-calendar.calendar-large .clndr-controls {
+  font-size: 23px;
+}
+#tmsm-werecruit-calendar.calendar-large .day {
+  font-size: 16px;
+  border: 3px solid #ffffff;
+}
+#tmsm-werecruit-calendar.calendar-large .cell {
+  padding: 8px;
+}
+#tmsm-werecruit-calendar .table-calendarprices {
+  width: 100%;
+}
+#tmsm-werecruit-calendar .table-calendarprices ::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+#tmsm-werecruit-calendar .table-calendarprices ::selection {
+  background: transparent;
+  color: inherit;
+}
+#tmsm-werecruit-calendar .table-calendarprices .clndr-controls {
+  background: white;
+  border-bottom: 2px solid #dddddd;
+}
+#tmsm-werecruit-calendar .table-calendarprices .header-days .header-day {
+  text-align: center;
+}
+#tmsm-werecruit-calendar .table-calendarprices .month {
+  font-weight: normal;
+  text-align: center;
+}
+#tmsm-werecruit-calendar .table-calendarprices .month:first-letter {
+  text-transform: uppercase;
+}
+#tmsm-werecruit-calendar .table-calendarprices .month small {
+  display: none;
+}
+#tmsm-werecruit-calendar .table-calendarprices th {
+  line-height: 2;
+}
+#tmsm-werecruit-calendar .table-calendarprices .clndr-control-button > span:hover {
+  cursor: pointer;
+}
+#tmsm-werecruit-calendar .table-calendarprices .clndr-control-button > span.inactive {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#tmsm-werecruit-calendar .table-calendarprices .clndr-control-button.clndr-control-button-previous {
+  text-align: left;
+}
+#tmsm-werecruit-calendar .table-calendarprices .clndr-control-button.clndr-control-button-next {
+  text-align: right;
+}
+#tmsm-werecruit-calendar .table-calendarprices .cell {
+  vertical-align: middle;
+  position: relative;
+}
+#tmsm-werecruit-calendar .table-calendarprices .cell + .cell {
+  display: none;
+}
+#tmsm-werecruit-calendar .table-calendarprices .day-number {
+  background: transparent;
+  color: inherit;
+  padding: 1px;
+  display: inline-block;
+  font-size: 15px;
+  line-height: normal;
+}
+#tmsm-werecruit-calendar .table-calendarprices .minstay {
+  position: absolute;
+  line-height: 14px;
+  top: 0;
+  right: 0;
+  display: none;
+  background: transparent;
+  color: #333333;
+}
+#tmsm-werecruit-calendar .table-calendarprices .day-special {
+  position: absolute;
+  top: 1px;
+  left: 16px;
+  padding: 1px;
+  width: 16px;
+}
+#tmsm-werecruit-calendar .table-calendarprices .day-special.glyphicon-alert {
+  display: block;
+}
+#tmsm-werecruit-calendar .table-calendarprices .price {
+  font-weight: bold;
+  margin: 0;
+  font-size: 11px;
+  line-height: normal;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day {
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+  background: #ffffff;
+  color: #333333;
+  width: 14%;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day .day-number {
+  color: inherit;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day .price {
+  color: rgba(0, 0, 0, 0.4);
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day:hover {
+  cursor: pointer;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.past .cell,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.next-month .cell,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.inactive .cell,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.last-month .cell {
+  background: #ffffff !important;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.past .cell .day-number,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.next-month .cell .day-number,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.inactive .cell .day-number,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.last-month .cell .day-number {
+  color: rgba(0, 0, 0, 0.25) !important;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.past .cell .price,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.next-month .cell .price,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.inactive .cell .price,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.last-month .cell .price {
+  visibility: hidden;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.past.inactive:hover,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.next-month.inactive:hover,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.inactive.inactive:hover,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.last-month.inactive:hover {
+  cursor: not-allowed;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected .cell {
+  background: #808080;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected .day-number {
+  color: #333333;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected .price {
+  color: rgba(0, 0, 0, 0.4);
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected.active .instead,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected.active .price {
+  opacity: 1;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-hover .cell {
+  background: #808080;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-begin .cell,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-end .cell {
+  background: #333333;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-begin .price,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-end .price {
+  color: #808080;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-begin .day-number,
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.selected-end .day-number {
+  color: #ffffff;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.mouseover .cell {
+  background: #333333;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.mouseover .price {
+  color: #808080;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day.mouseover .day-number {
+  color: #ffffff;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day:not(.selected):not(.past):not(.mouseover) .cell[data-lowestprice='1'] .price {
+  color: #0f9d58;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day:not(.selected):not(.past):not(.mouseover) .cell[data-availability='1'],
+#tmsm-werecruit-calendar .table-calendarprices tbody .day:not(.selected):not(.past):not(.mouseover) .cell[data-availability='2'] {
+  background: #ffffff;
+}
+#tmsm-werecruit-calendar .table-calendarprices tbody .day:not(.selected):not(.past):not(.mouseover) .cell[data-minstay]:not([data-minstay=""]) .minstay {
+  display: inline-block;
+}
+#tmsm-werecruit-calendar .table-calendarprices .cell[data-equal='1'] .instead,
+#tmsm-werecruit-calendar .table-calendarprices .cell[data-equal='true'] .instead {
+  visibility: hidden;
+}
+.tmsm-werecruit-form-legend {
+  margin-top: 5px;
+}
+.tmsm-werecruit-form-legend .legend-item {
+  margin-bottom: 5px;
+}
+.tmsm-werecruit-form-legend .legend-item:before {
+  content: '';
+  border: 1px solid black;
+  background: white;
+  width: 18px;
+  line-height: 7px;
+  height: 12px;
+  padding: 1px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-available {
+  display: none;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-notavailable {
+  display: none;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-notavailable:before {
+  background: #ffffff;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-lowestprice {
+  display: none;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-lowestprice:before {
+  background: #0f9d58;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-lastrooms {
+  display: none;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-lastrooms:before {
+  background: #ffffff;
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-minstay {
+  display: none;
+}
+@media (min-width: 900px) {
+  .tmsm-werecruit-form-legend .legend-item.legend-item-minstay {
+    display: block;
+  }
+}
+.tmsm-werecruit-form-legend .legend-item.legend-item-minstay:before {
+  content: '⇾';
+  background: transparent;
+  color: #333333;
+}
+#tmsm-werecruit-form .tmsm-werecruit-form-fields {
+  padding-bottom: 50px;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-form .tmsm-werecruit-form-fields {
+    padding-bottom: 0;
+  }
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-intro {
+  display: none;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-form #tmsm-werecruit-form-intro {
+    display: block;
+  }
+}
+#tmsm-werecruit-form #tmsm-werecruit-calculatetotal-totalprice-label {
+  display: none;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-checkindateinfo-label,
+#tmsm-werecruit-form #tmsm-werecruit-form-adults-label {
+  display: none;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-checkoutdateinfo-label {
+  text-align: center;
+  display: inline-block;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-checkindateinfo:empty,
+#tmsm-werecruit-form #tmsm-werecruit-form-checkoutdateinfo:empty {
+  border-bottom: 1px dotted #dddddd;
+  min-width: 60px;
+  display: inline-block;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-minstay-message[data-value='0'] {
+  display: none;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-adults {
+  width: auto;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-dates-container {
+  position: relative;
+}
+#tmsm-werecruit-form #tmsm-werecruit-form-nights-message {
+  display: none;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-form #tmsm-werecruit-form-nights-message {
+    display: block;
+  }
+  #tmsm-werecruit-form #tmsm-werecruit-form-nights-message[data-value='0'] {
+    display: none;
+  }
+}
+#tmsm-werecruit-calendar-container {
+  padding: 10px;
+  background: #dddddd;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-calendar-container {
+    width: 50%;
+    display: inline-block;
+    padding: 15px;
+  }
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-calendar {
+    min-height: 325px;
+  }
+}
+#tmsm-werecruit-form {
+  padding: 10px;
+  background: white;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-form {
+    width: 50%;
+    float: right;
+    padding: 15px;
+  }
+}
+#tmsm-werecruit-container {
+  background: white;
+}
+@media (min-width: 900px) {
+  #tmsm-werecruit-form-outro {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    right: 0;
+    padding: 15px;
+    left: 50%;
+  }
+}
+.tmsm-werecruit-form-has-ota-price #tmsm-werecruit-form-outro {
+  position: relative;
+  right: auto;
+  left: auto;
+  padding: 0;
+}

@@ -1,0 +1,268 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TMSM WeRecruit\n"
+"POT-Creation-Date: 2020-07-20 14:15+0200\n"
+"PO-Revision-Date: 2014-10-24 21:08+0100\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: admin/class-tmsm-werecruit-admin.php:99
+#: admin/class-tmsm-werecruit-admin.php:760
+msgid "TMSM WeRecruit Cron Schedule Exists"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:129
+msgctxt "Issue counter label for the admin menu"
+msgid "Critical issues"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:133
+#: admin/class-tmsm-werecruit-admin.php:139
+msgid "Site Health"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:153
+#: admin/class-tmsm-werecruit-admin.php:706
+msgid "Availpro"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:165
+msgid "Settings"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:219
+msgid "Consumer key"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:232
+msgid "Consumer secret"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:243
+msgid "Access token"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:254
+msgid "Token secret"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:265
+msgid "Group ID"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:276
+msgid "Hotel ID"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:287
+msgid "Room IDs"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:293
+#: admin/class-tmsm-werecruit-admin.php:305
+#: admin/class-tmsm-werecruit-admin.php:317
+msgid "Separated by comma."
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:299
+msgid "Accommodation Rate IDs"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:311
+msgid "OTA Rate IDs"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:323
+msgid "Currency (ISO 4217 code)"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:334
+msgid "Engine (format: name/id/)"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:345
+msgid "Intro"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:351
+#: admin/class-tmsm-werecruit-admin.php:363
+#: admin/class-tmsm-werecruit-admin.php:375
+msgid "Html accepted. "
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:357
+msgid "Outro"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:369
+msgid "Book Button Label"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:381
+msgid "Year Best Price Label"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:387
+#: admin/class-tmsm-werecruit-admin.php:399
+#: admin/class-tmsm-werecruit-admin.php:411
+msgid "Html accepted. Use % as placeholder for price."
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:393
+msgid "Accommodation Price Label"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:405
+msgid "OTA Compare Label"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:424
+msgid "API"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:431
+msgid "Filters"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:438
+msgid "Descriptions"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:690
+#: admin/class-tmsm-werecruit-admin.php:691
+msgctxt "money format"
+msgid "From %"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:692
+msgid "Compare with the OTA: %"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:718
+msgid "Calendar color for selected date"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:731
+msgid "Calendar color for range date"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:745
+msgid "Calendar best price color"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:763
+msgid "Performance"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:768
+msgid "Cron Schedule is not fired"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:777
+msgid "TMSM WeRecruit Cron Schedule is not added"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:780
+msgid ""
+"Cron schedule is not fired, prices will not update from Availpro."
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:785
+msgid "Disable and enable again the plugin"
+msgstr ""
+
+#: admin/partials/tmsm-werecruit-admin-options-page.php:15
+msgid "Customize colors"
+msgstr ""
+
+#: admin/partials/tmsm-werecruit-admin-options-page.php:20
+msgid "Save options"
+msgstr ""
+
+#: includes/class-tmsm-werecruit-sanitize.php:190
+msgid "Specify the data type to sanitize."
+msgstr ""
+
+#: includes/class-tmsm-werecruit-sanitize.php:196
+msgid "Forgot data type"
+msgstr ""
+
+#: includes/class-tmsm-werecruit.php:203
+msgid "Every 5 minutes"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:196
+msgctxt "price"
+msgid "From"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:290
+msgid "Not available"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:291
+msgid "Available"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:292
+msgid "Lowest price"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:293
+msgid "Last rooms"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:294
+msgid "Minimum stay"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:329
+msgctxt "date selection"
+msgid "From"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:329
+msgctxt "date selection"
+msgid "to"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:331
+msgid "Number of nights:"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:332
+msgid "Minimum stay:"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:375
+msgid "Book now"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:896
+msgid "Token security not valid"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:910
+msgid "Date is empty"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:917
+msgid "Nights number are empty"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:1021
+msgid "No availability"
+msgstr ""

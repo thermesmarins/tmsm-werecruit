@@ -1,0 +1,12 @@
+<wpml-config>
+    <admin-texts>
+        <key name="tmsm-werecruit-options">
+            <key name="intro" />
+            <key name="outro" />
+            <key name="bookbuttonlabel" />
+            <key name="yearbestpricelabel" />
+            <key name="selecteddatepricelabel" />
+            <key name="otacomparelabel" />
+        </key>
+    </admin-texts>
+</wpml-config>

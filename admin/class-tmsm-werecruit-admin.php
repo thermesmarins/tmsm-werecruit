@@ -150,7 +150,7 @@ class Tmsm_Werecruit_Admin {
 	 * @since    1.0.0
 	 */
 	public function options_page_menu() {
-		add_options_page( __('WeRecruit', 'tmsm-werecruit'), __('Availpro', 'tmsm-werecruit'), 'manage_options', $this->plugin_name.'-settings', array($this, 'options_page_display'));
+		add_options_page( __('WeRecruit', 'tmsm-werecruit'), __('WeRecruit', 'tmsm-werecruit'), 'manage_options', $this->plugin_name.'-settings', array($this, 'options_page_display'));
 
 	}
 
@@ -215,51 +215,19 @@ class Tmsm_Werecruit_Admin {
 	public function register_fields() {
 
 		add_settings_field(
-			'consumerkey',
-			esc_html__( 'Consumer key', 'tmsm-werecruit' ),
+			'apikey',
+			esc_html__( 'API Key', 'tmsm-werecruit' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
 			$this->plugin_name . '-api',
 			array(
 				//'description' 	=> 'This message displays on the page if no job postings are found.',
-				'id' => 'consumerkey',
+				'id' => 'apikey',
 				//'value' 		=> 'Thank you for your interest! There are no job openings at this time.',
 			)
 		);
 
-		add_settings_field(
-			'consumersecret',
-			esc_html__( 'Consumer secret', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-api',
-			array(
-				'id' => 'consumersecret',
-			)
-		);
-
-		add_settings_field(
-			'accesstoken',
-			esc_html__( 'Access token', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-api',
-			array(
-				'id' => 'accesstoken',
-			)
-		);
-
-		add_settings_field(
-			'tokensecret',
-			esc_html__( 'Token secret', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-api',
-			array(
-				'id' => 'tokensecret',
-			)
-		);
-
+/*
 		add_settings_field(
 			'groupid',
 			esc_html__( 'Group ID', 'tmsm-werecruit' ),
@@ -410,7 +378,7 @@ class Tmsm_Werecruit_Admin {
 				'id' => 'otacomparelabel',
 				'description' => esc_html__( 'Html accepted. Use % as placeholder for price.', 'tmsm-werecruit' ),
 			)
-		);
+		);*/
 
 	}
 
@@ -426,6 +394,7 @@ class Tmsm_Werecruit_Admin {
 			$this->plugin_name
 		);
 
+		/*
 		add_settings_section(
 			$this->plugin_name . '-filters',
 			esc_html__( 'Filters', 'tmsm-werecruit' ),
@@ -438,7 +407,7 @@ class Tmsm_Werecruit_Admin {
 			esc_html__( 'Descriptions', 'tmsm-werecruit' ),
 			array( $this, 'section_desc' ),
 			$this->plugin_name
-		);
+		);*/
 
 	}
 
@@ -673,7 +642,7 @@ class Tmsm_Werecruit_Admin {
 	 */
 	public static function get_options_list() {
 		$options   = array();
-		$options[] = array( 'consumerkey', 'text', '' );
+		$options[] = array( 'apikey', 'text', '' );
 		$options[] = array( 'consumersecret', 'text', '' );
 		$options[] = array( 'accesstoken', 'text', '' );
 		$options[] = array( 'tokensecret', 'text', '' );
@@ -702,8 +671,9 @@ class Tmsm_Werecruit_Admin {
 	 */
 	public function customize_register( $wp_customize ) {
 
+		/*
 		$wp_customize->add_section('tmsm_werecruit', array(
-			'title'    => esc_html__('Availpro', 'tmsm-werecruit'),
+			'title'    => esc_html__('WeRecruit', 'tmsm-werecruit'),
 			'description' => '',
 			'priority' => 180,
 		));
@@ -747,7 +717,7 @@ class Tmsm_Werecruit_Admin {
 			'settings' 				=> 'tmsm_werecruit_calendar_bestpricecolor',
 			'priority' 				=> 10,
 		) ) );
-		
+		*/
 	}
 }
 

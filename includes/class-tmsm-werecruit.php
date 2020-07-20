@@ -194,8 +194,8 @@ class Tmsm_Werecruit {
 	private function define_cron_schedule() {
 		add_filter('cron_schedules', function($schedules) {
 			$schedules['tmsm_werecruit_refresh_schedule'] = array(
-				'interval' => MINUTE_IN_SECONDS * 5,
-				'display'  => __( 'Every 5 minutes', 'tmsm-werecruit' ),
+				'interval' => HOURS_IN_SECONDS * 4,
+				'display'  => __( 'Every 4 hours', 'tmsm-werecruit' ),
 			);
 			return $schedules;
 		}, 99);

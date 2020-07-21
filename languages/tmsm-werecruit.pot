@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WeRecruit\n"
-"POT-Creation-Date: 2020-07-21 15:08+0200\n"
+"POT-Creation-Date: 2020-07-21 15:45+0200\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 
 #: admin/class-tmsm-werecruit-admin.php:99
-#: admin/class-tmsm-werecruit-admin.php:730
+#: admin/class-tmsm-werecruit-admin.php:509
 msgid "TMSM WeRecruit Cron Schedule Exists"
 msgstr ""
 
@@ -46,38 +46,28 @@ msgstr ""
 msgid "API Key"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:392
+#: admin/class-tmsm-werecruit-admin.php:239
 msgid "API"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:659
-#: admin/class-tmsm-werecruit-admin.php:660
-msgctxt "money format"
-msgid "From %"
-msgstr ""
-
-#: admin/class-tmsm-werecruit-admin.php:661
-msgid "Compare with the OTA: %"
-msgstr ""
-
-#: admin/class-tmsm-werecruit-admin.php:733
+#: admin/class-tmsm-werecruit-admin.php:512
 msgid "Performance"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:738
+#: admin/class-tmsm-werecruit-admin.php:517
 msgid "Cron Schedule is not fired"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:747
+#: admin/class-tmsm-werecruit-admin.php:526
 msgid "TMSM WeRecruit Cron Schedule is not added"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:750
+#: admin/class-tmsm-werecruit-admin.php:529
 msgid ""
 "Cron schedule is not fired, prices will not update from Availpro."
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:755
+#: admin/class-tmsm-werecruit-admin.php:534
 msgid "Disable and enable again the plugin"
 msgstr ""
 
@@ -97,7 +87,7 @@ msgstr ""
 msgid "Forgot data type"
 msgstr ""
 
-#: includes/class-tmsm-werecruit.php:199
+#: includes/class-tmsm-werecruit.php:198
 msgid "Every 4 hours"
 msgstr ""
 
@@ -114,10 +104,10 @@ msgid_plural "%d job offers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: public/class-tmsm-werecruit-public.php:310
+#: public/class-tmsm-werecruit-public.php:298
 msgid "Apply"
 msgstr ""
 
-#: public/class-tmsm-werecruit-public.php:352
+#: public/class-tmsm-werecruit-public.php:324
 msgid "No job offers at the moment"
 msgstr ""

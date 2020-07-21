@@ -227,159 +227,6 @@ class Tmsm_Werecruit_Admin {
 			)
 		);
 
-/*
-		add_settings_field(
-			'groupid',
-			esc_html__( 'Group ID', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id' => 'groupid',
-			)
-		);
-
-		add_settings_field(
-			'hotelid',
-			esc_html__( 'Hotel ID', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id' => 'hotelid',
-			)
-		);
-
-		add_settings_field(
-			'roomids',
-			esc_html__( 'Room IDs', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id'          => 'roomids',
-				'description' => esc_html__( 'Separated by comma.', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'accommodationrateids',
-			esc_html__( 'Accommodation Rate IDs', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id'          => 'accommodationrateids',
-				'description' => esc_html__( 'Separated by comma.', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'otarateids',
-			esc_html__( 'OTA Rate IDs', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id'          => 'otarateids',
-				'description' => esc_html__( 'Separated by comma.', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'currency',
-			esc_html__( 'Currency (ISO 4217 code)', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id' => 'currency',
-			)
-		);
-
-		add_settings_field(
-			'engine',
-			esc_html__( 'Engine (format: name/id/)', 'tmsm-werecruit' ),
-			array( $this, 'field_text' ),
-			$this->plugin_name,
-			$this->plugin_name . '-filters',
-			array(
-				'id' => 'engine',
-			)
-		);
-
-		add_settings_field(
-			'intro',
-			esc_html__( 'Intro', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'intro',
-				'description' => esc_html__( 'Html accepted. ', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'outro',
-			esc_html__( 'Outro', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'outro',
-				'description' => esc_html__( 'Html accepted. ', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'bookbuttonlabel',
-			esc_html__( 'Book Button Label', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'bookbuttonlabel',
-				'description' => esc_html__( 'Html accepted. ', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'yearbestpricelabel',
-			esc_html__( 'Year Best Price Label', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'yearbestpricelabel',
-				'description' => esc_html__( 'Html accepted. Use % as placeholder for price.', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'selecteddatepricelabel',
-			esc_html__( 'Accommodation Price Label', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'selecteddatepricelabel',
-				'description' => esc_html__( 'Html accepted. Use % as placeholder for price.', 'tmsm-werecruit' ),
-			)
-		);
-
-		add_settings_field(
-			'otacomparelabel',
-			esc_html__( 'OTA Compare Label', 'tmsm-werecruit' ),
-			array( $this, 'field_textarea' ),
-			$this->plugin_name,
-			$this->plugin_name . '-desc',
-			array(
-				'id' => 'otacomparelabel',
-				'description' => esc_html__( 'Html accepted. Use % as placeholder for price.', 'tmsm-werecruit' ),
-			)
-		);*/
-
 	}
 
 	/**
@@ -401,13 +248,7 @@ class Tmsm_Werecruit_Admin {
 			array( $this, 'section_filters' ),
 			$this->plugin_name
 		);
-
-		add_settings_section(
-			$this->plugin_name . '-desc',
-			esc_html__( 'Descriptions', 'tmsm-werecruit' ),
-			array( $this, 'section_desc' ),
-			$this->plugin_name
-		);*/
+		*/
 
 	}
 
@@ -643,22 +484,6 @@ class Tmsm_Werecruit_Admin {
 	public static function get_options_list() {
 		$options   = array();
 		$options[] = array( 'apikey', 'text', '' );
-		$options[] = array( 'consumersecret', 'text', '' );
-		$options[] = array( 'accesstoken', 'text', '' );
-		$options[] = array( 'tokensecret', 'text', '' );
-		$options[] = array( 'groupid', 'text', '' );
-		$options[] = array( 'hotelid', 'text', '' );
-		$options[] = array( 'roomids', 'text', '' );
-		$options[] = array( 'accommodationrateids', 'text', '' );
-		$options[] = array( 'otarateids', 'text', '' );
-		$options[] = array( 'currency', 'text', '' );
-		$options[] = array( 'engine', 'text', '' );
-		$options[] = array( 'intro', 'textarea', '' );
-		$options[] = array( 'outro', 'textarea', '' );
-		$options[] = array( 'bookbuttonlabel', 'textarea', '' );
-		$options[] = array( 'selecteddatepricelabel', 'textarea', _x( 'From %', 'money format', 'tmsm-werecruit' ) );
-		$options[] = array( 'yearbestpricelabel', 'textarea', _x('From %', 'money format', 'tmsm-werecruit') );
-		$options[] = array( 'otacomparelabel', 'textarea', __( 'Compare with the OTA: %', 'tmsm-werecruit' ) );
 
 		return $options;
 	}
@@ -671,53 +496,7 @@ class Tmsm_Werecruit_Admin {
 	 */
 	public function customize_register( $wp_customize ) {
 
-		/*
-		$wp_customize->add_section('tmsm_werecruit', array(
-			'title'    => esc_html__('WeRecruit', 'tmsm-werecruit'),
-			'description' => '',
-			'priority' => 180,
-		));
 
-		$wp_customize->add_setting( 'tmsm_werecruit_calendar_selectedcolor', array(
-			'transport' 			=> 'postMessage',
-			'default'           	=> '#333333',
-			'sanitize_callback' 	=> 'sanitize_hex_color',
-		) );
-
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tmsm_werecruit_calendar_selectedcolor', array(
-			'label'	   				=> esc_html__( 'Calendar color for selected date', 'tmsm-werecruit' ),
-			'section'  				=> 'tmsm_werecruit',
-			'settings' 				=> 'tmsm_werecruit_calendar_selectedcolor',
-			'priority' 				=> 10,
-		) ) );
-
-		$wp_customize->add_setting( 'tmsm_werecruit_calendar_rangecolor', array(
-			'transport' 			=> 'postMessage',
-			'default'           	=> '#808080',
-			'sanitize_callback' 	=> 'sanitize_hex_color',
-		) );
-
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tmsm_werecruit_calendar_rangecolor', array(
-			'label'	   				=> esc_html__( 'Calendar color for range date', 'tmsm-werecruit' ),
-			'section'  				=> 'tmsm_werecruit',
-			'settings' 				=> 'tmsm_werecruit_calendar_rangecolor',
-			'priority' 				=> 10,
-		) ) );
-
-
-		$wp_customize->add_setting( 'tmsm_werecruit_calendar_bestpricecolor', array(
-			'transport' 			=> 'postMessage',
-			'default'           	=> '#0f9d58',
-			'sanitize_callback' 	=> 'sanitize_hex_color',
-		) );
-
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tmsm_werecruit_calendar_bestpricecolor', array(
-			'label'	   				=> esc_html__( 'Calendar best price color', 'tmsm-werecruit' ),
-			'section'  				=> 'tmsm_werecruit',
-			'settings' 				=> 'tmsm_werecruit_calendar_bestpricecolor',
-			'priority' 				=> 10,
-		) ) );
-		*/
 	}
 }
 

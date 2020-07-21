@@ -265,88 +265,60 @@ class Tmsm_Werecruit_Public {
 
 			echo '<p>'.sprintf( esc_html( _n( '%d job offers', '%d job offers', count($offers), 'tmsm-werecruit'  ) ), count($offers) ).'</p>';
 
-			/*echo '<table>
-			<thead>
-			<th>'.__('Title','tmsm-werecruit').'</th>
-			<th>'.__('Sectors','tmsm-werecruit').'</th>
-			<th>'.__('Category','tmsm-werecruit').'</th>
-			<th>'.__('Location','tmsm-werecruit').'</th>
-			<th>'.__('Contract Type','tmsm-werecruit').'</th>
-			<th>'.__('Rythm','tmsm-werecruit').'</th>
-			<th>'.__('Company','tmsm-werecruit').'</th>
-			</thead>
-			<tbody>
-			';*/
-
 			foreach($offers as $offer){
 
-				$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
-					[
-						'elType' => 'widget',
-						'widgetType' => 'call-to-action',
-						'id' => 'joboffer-',
-						'settings' => [
-							'title' => $offer->title,
-							'url' => $offer->url,
-							'link' => [
+				if(class_exists('\Elementor\Plugin')){
+					$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+						[
+							'elType' => 'widget',
+							'widgetType' => 'call-to-action',
+							'id' => 'joboffer-',
+							'settings' => [
+								'title' => $offer->title,
 								'url' => $offer->url,
-								'is_external' => '',
-								'nofollow' => '',
-								'custom_attributes' => '',
-							],
-							'image' => [
-								'url' => $offer->ribbonAssetUrl,
-							],
-							'bg_image' => [
-								'url' => $offer->ribbonAssetUrl,
-							],
+								'link' => [
+									'url' => $offer->url,
+									'is_external' => '',
+									'nofollow' => '',
+									'custom_attributes' => '',
+								],
+								'image' => [
+									'url' => $offer->ribbonAssetUrl,
+								],
+								'bg_image' => [
+									'url' => $offer->ribbonAssetUrl,
+								],
 
-							'description' => '
+								'description' => '
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-calendar-alt"></i> '.$offer->contract.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-business-time"></i> '.$offer->company.'</span>
 							',
-							'button' => __('Apply','tmsm-werecruit'),
-							'skin' => 'classic',
-							'layout' => 'left',
-							'alignment' => 'left',
-							'vertical_position' => 'top',
-							'image_min_width' => [
-								'unit' => 'px',
-								'size' => '169',
-								'sizes' => [],
+								'button' => __('Apply','tmsm-werecruit'),
+								'skin' => 'classic',
+								'layout' => 'left',
+								'alignment' => 'left',
+								'vertical_position' => 'top',
+								'image_min_width' => [
+									'unit' => 'px',
+									'size' => '169',
+									'sizes' => [],
+								],
+								'image_min_height' => [
+									'unit' => 'px',
+									'size' => '43',
+									'sizes' => [],
+								],
 							],
-							'image_min_height' => [
-								'unit' => 'px',
-								'size' => '43',
-								'sizes' => [],
-							],
-							// $offer->sector
-							//$offer->jobType
 						],
-					],
-					[]
-				);
-				$heading_widget->print_element();
+						[]
+					);
+					$heading_widget->print_element();
+				}
 
-				/*$output .= '
-					<tr>
-						<td><a href="'.$offer->url.'">'.$offer->title.'</a></td>
-						<td>'.$offer->sector.'</td>
-						<td>'.$offer->jobType.'</td>
-						<td>'.$offer->addressCity.'</td>
-						
-						<td>'.$offer->type.'</td>
-						<td>'.$offer->contract.'</td>
-						
-						<td>'.$offer->company.'</td>
-					</tr>
-				';*/
 			}
 
-
-			//$output .= '</tbody></table>';
 		}
 		else{
 			echo '<p>'.__('No job offers at the moment','tmsm-werecruit').'</p>';
@@ -363,9 +335,12 @@ class Tmsm_Werecruit_Public {
 			error_log( 'Function WeRecruit refresh_data()' );
 		}
 
-		// https://app.werecruit.io/api/externalpostfeed/e358f0c5-bf66-47db-8bfb-23d860438d92?state=published
-		$url = 'https://app.werecruit.io/api/externalpostfeed/e358f0c5-bf66-47db-8bfb-23d860438d92?state=published
-';
+		if(empty($this->get_option('apikey')) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			error_log('WeRecruit undefined API key');
+			return;
+		}
+		$url = 'https://app.werecruit.io/api/externalpostfeed/'.$this->get_option('apikey').'?state=published';
+
 		$headers=[
 			'accept' => 'text/plain',
 		];
@@ -374,30 +349,33 @@ class Tmsm_Werecruit_Public {
 
 		error_log('response:');
 		error_log(print_r($response, true));
-		if( empty($response)){
-			error_log('Empty response');
+		if( empty($response) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			error_log('WeRecruit empty response');
+			return;
 		}
-		if( empty($response['body'])){
-			error_log('Empty response body');
-		}
-		if( empty($response['isSuccessful']) ||  $response['isSuccessful'] != true ){
-			error_log('Response not successful');
-		}
-
 		$response_json = json_decode($response['body']);
 
-		error_log('result number:'.count($response_json->result));
-
-		if(!is_array($response_json->result)){
-			error_log('Response results not an array');
+		if( empty($response['body']) && defined( 'WP_DEBUG' ) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			error_log('WeRecruit empty response body');
+			return;
 		}
 
-		$sectors = []; // Catégorie
-		$jobtypes = []; // Type d'emploi
-		$types = []; // Type de contract, exemple CDI
-		$contracts = []; // Rythme de travail, exemple "Temps plein"
-		$cities = []; // Ville, exemple Saint-Malo
-		$companies = []; // Entreprise, exemple Hôtel le Nouveau Monde
+		if( (empty($response_json->isSuccessful) ||  $response_json->isSuccessful != 1) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			error_log('WeRecruit response not successful');
+			return;
+		}
+		error_log('WeRecruit 01');
+		if(!is_array($response_json->result) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			error_log('WeRecruit response results not an array');
+			return;
+		}
+		error_log('WeRecruit 02');
+		$sectors = []; // Sector
+		$jobtypes = []; // Job Type
+		$types = []; // Contract Type, example Permanent, Fixed-term
+		$contracts = []; // Rythm, example Full Time
+		$cities = []; // Cities
+		$companies = []; // Companies
 
 		$offers_count = 0;
 		$offers = [];
@@ -433,26 +411,6 @@ class Tmsm_Werecruit_Public {
 
 		}
 
-		error_log('offers_count:'.$offers_count);
-
-		error_log('sectors:');
-		error_log(print_r($sectors, true));
-
-		error_log('jobtypes:');
-		error_log(print_r($jobtypes, true));
-
-		error_log('types:');
-		error_log(print_r($types, true));
-
-		error_log('contracts:');
-		error_log(print_r($contracts, true));
-
-		error_log('cities:');
-		error_log(print_r($cities, true));
-
-		error_log('companies:');
-		error_log(print_r($companies, true));
-
 		$filters = [
 			'sectors' => $sectors,
 			'jobtypes' => $jobtypes,
@@ -464,17 +422,6 @@ class Tmsm_Werecruit_Public {
 		update_option('tmsm-werecruit-filters', $filters);
 		update_option('tmsm-werecruit-offers', $offers);
 
-		/*$lastmonthchecked = get_option( 'tmsm-werecruit-lastmonthchecked', false );
-
-		update_option('tmsm-werecruit-bestprice-'.$monthtocheck, $dailyplanning_bestprice);
-
-
-		$bestprice_year = get_option( 'tmsm-werecruit-bestprice-year', false );
-
-		update_option('tmsm-werecruit-bestprice-year', $bestprice_year);
-
-
-		delete_option( 'tmsm-werecruit-bestprice-'.$today->modify('-1 month')->format('Y-m') );*/
 	}
 
 

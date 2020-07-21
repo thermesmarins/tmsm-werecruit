@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WeRecruit\n"
-"POT-Creation-Date: 2019-12-05 09:36+0100\n"
-"PO-Revision-Date: 2020-07-20 14:16+0200\n"
+"POT-Creation-Date: 2020-07-21 15:08+0200\n"
+"PO-Revision-Date: 2020-07-21 15:09+0200\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 
 #: admin/class-tmsm-werecruit-admin.php:99
-#: admin/class-tmsm-werecruit-admin.php:760
+#: admin/class-tmsm-werecruit-admin.php:730
 msgid "TMSM WeRecruit Cron Schedule Exists"
 msgstr "La planification de cron de TMSM WeRecruit existe"
 
@@ -34,153 +34,50 @@ msgid "Site Health"
 msgstr "Santé du site"
 
 #: admin/class-tmsm-werecruit-admin.php:153
-#: admin/class-tmsm-werecruit-admin.php:706
-msgid "Availpro"
-msgstr "Availpro"
+msgid "WeRecruit"
+msgstr "WeRecruit"
 
 #: admin/class-tmsm-werecruit-admin.php:165
 msgid "Settings"
 msgstr "Réglages"
 
 #: admin/class-tmsm-werecruit-admin.php:219
-msgid "Consumer key"
-msgstr "Clé client"
+msgid "API Key"
+msgstr "Clé API"
 
-#: admin/class-tmsm-werecruit-admin.php:232
-msgid "Consumer secret"
-msgstr "Secret client"
-
-#: admin/class-tmsm-werecruit-admin.php:243
-msgid "Access token"
-msgstr "Token d’accès"
-
-#: admin/class-tmsm-werecruit-admin.php:254
-msgid "Token secret"
-msgstr "Secret de token"
-
-#: admin/class-tmsm-werecruit-admin.php:265
-msgid "Group ID"
-msgstr "Identifiant du groupe"
-
-#: admin/class-tmsm-werecruit-admin.php:276
-msgid "Hotel ID"
-msgstr "Identifiant de l'hôtel"
-
-#: admin/class-tmsm-werecruit-admin.php:287
-msgid "Room IDs"
-msgstr "Identifiants de chambre"
-
-#: admin/class-tmsm-werecruit-admin.php:293
-#: admin/class-tmsm-werecruit-admin.php:305
-#: admin/class-tmsm-werecruit-admin.php:317
-msgid "Separated by comma."
-msgstr "Séparé par des virgules."
-
-#: admin/class-tmsm-werecruit-admin.php:299
-msgid "Accommodation Rate IDs"
-msgstr "Identifiants de prix de l’établissement"
-
-#: admin/class-tmsm-werecruit-admin.php:311
-msgid "OTA Rate IDs"
-msgstr "Identifiants de prix OTA"
-
-#: admin/class-tmsm-werecruit-admin.php:323
-msgid "Currency (ISO 4217 code)"
-msgstr "Monnaie (code ISO 4217)"
-
-#: admin/class-tmsm-werecruit-admin.php:334
-msgid "Engine (format: name/id/)"
-msgstr "Moteur (format : nom/identifiant/)"
-
-#: admin/class-tmsm-werecruit-admin.php:345
-msgid "Intro"
-msgstr "Intro"
-
-#: admin/class-tmsm-werecruit-admin.php:351
-#: admin/class-tmsm-werecruit-admin.php:363
-#: admin/class-tmsm-werecruit-admin.php:375
-msgid "Html accepted. "
-msgstr "Html accepté."
-
-#: admin/class-tmsm-werecruit-admin.php:357
-msgid "Outro"
-msgstr "Outro"
-
-#: admin/class-tmsm-werecruit-admin.php:369
-msgid "Book Button Label"
-msgstr "Libellé du bouton réservation"
-
-#: admin/class-tmsm-werecruit-admin.php:381
-msgid "Year Best Price Label"
-msgstr "Libellé du meilleur prix annuel"
-
-#: admin/class-tmsm-werecruit-admin.php:387
-#: admin/class-tmsm-werecruit-admin.php:399
-#: admin/class-tmsm-werecruit-admin.php:411
-msgid "Html accepted. Use % as placeholder for price."
-msgstr "Html accepté. Utilisez % pour afficher le prix."
-
-#: admin/class-tmsm-werecruit-admin.php:393
-msgid "Accommodation Price Label"
-msgstr "Libellé du prix de l’établissement"
-
-#: admin/class-tmsm-werecruit-admin.php:405
-msgid "OTA Compare Label"
-msgstr "Libellé du prix OTA"
-
-#: admin/class-tmsm-werecruit-admin.php:424
+#: admin/class-tmsm-werecruit-admin.php:392
 msgid "API"
 msgstr "API"
 
-#: admin/class-tmsm-werecruit-admin.php:431
-msgid "Filters"
-msgstr "Filtres"
-
-#: admin/class-tmsm-werecruit-admin.php:438
-msgid "Descriptions"
-msgstr "Descriptions"
-
-#: admin/class-tmsm-werecruit-admin.php:690
-#: admin/class-tmsm-werecruit-admin.php:691
+#: admin/class-tmsm-werecruit-admin.php:659
+#: admin/class-tmsm-werecruit-admin.php:660
 msgctxt "money format"
 msgid "From %"
 msgstr "À partir de %"
 
-#: admin/class-tmsm-werecruit-admin.php:692
+#: admin/class-tmsm-werecruit-admin.php:661
 msgid "Compare with the OTA: %"
 msgstr "Comparez avec les OTA : %"
 
-#: admin/class-tmsm-werecruit-admin.php:718
-msgid "Calendar color for selected date"
-msgstr "Couleur pour la date sélectionnée dans le calendrier"
-
-#: admin/class-tmsm-werecruit-admin.php:731
-msgid "Calendar color for range date"
-msgstr "Couleur pour la plage sélectionnée dans le calendrier"
-
-#: admin/class-tmsm-werecruit-admin.php:745
-msgid "Calendar best price color"
-msgstr "Couleur pour le meilleur prix dans le calendrier"
-
-#: admin/class-tmsm-werecruit-admin.php:763
+#: admin/class-tmsm-werecruit-admin.php:733
 msgid "Performance"
 msgstr "Performance"
 
-#: admin/class-tmsm-werecruit-admin.php:768
+#: admin/class-tmsm-werecruit-admin.php:738
 msgid "Cron Schedule is not fired"
 msgstr "La planification du cron n’est pas exécutée"
 
-#: admin/class-tmsm-werecruit-admin.php:777
+#: admin/class-tmsm-werecruit-admin.php:747
 msgid "TMSM WeRecruit Cron Schedule is not added"
 msgstr "Le cron TMSM WeRecruit n’a pas été ajouté"
 
-#: admin/class-tmsm-werecruit-admin.php:780
+#: admin/class-tmsm-werecruit-admin.php:750
 msgid "Cron schedule is not fired, prices will not update from Availpro."
 msgstr ""
 "Le cron n’est pas planifié, les prix ne seront pas mis à joue depuis "
 "Availpro."
 
-#: admin/class-tmsm-werecruit-admin.php:785
+#: admin/class-tmsm-werecruit-admin.php:755
 msgid "Disable and enable again the plugin"
 msgstr "Désactiver puis activer l’extension"
 
@@ -192,80 +89,164 @@ msgstr "Personnaliser les couleurs"
 msgid "Save options"
 msgstr "Enregistrer les options"
 
-#: includes/class-tmsm-werecruit-sanitize.php:190
+#: includes/class-tmsm-werecruit-sanitize.php:185
 msgid "Specify the data type to sanitize."
 msgstr "Spécifier de type de données à normaliser."
 
-#: includes/class-tmsm-werecruit-sanitize.php:196
+#: includes/class-tmsm-werecruit-sanitize.php:191
 msgid "Forgot data type"
 msgstr "Type de données oublié"
 
-#: includes/class-tmsm-werecruit.php:203
-msgid "Every 5 minutes"
-msgstr "Toutes les 5 minutes"
+#: includes/class-tmsm-werecruit.php:199
+msgid "Every 4 hours"
+msgstr "Toutes les 4 heures"
 
-#: public/class-tmsm-werecruit-public.php:196
-msgctxt "price"
-msgid "From"
-msgstr "À partir de"
+#: public/class-tmsm-werecruit-public.php:228
+#: public/class-tmsm-werecruit-public.php:229
+#, php-format
+msgid "TMSM WeRecruit cron is not scheduled on %s"
+msgstr "La planification de cron de TMSM WeRecruit n’est pas planifiée sur %s"
 
-#: public/class-tmsm-werecruit-public.php:290
-msgid "Not available"
-msgstr "Indisponible"
+#: public/class-tmsm-werecruit-public.php:266
+#, php-format
+msgid "%d job offers"
+msgid_plural "%d job offers"
+msgstr[0] "%d offre d’emploi"
+msgstr[1] "%d offres d’emploi"
 
-#: public/class-tmsm-werecruit-public.php:291
-msgid "Available"
-msgstr "Disponible"
+#: public/class-tmsm-werecruit-public.php:310
+msgid "Apply"
+msgstr "Postuler"
 
-#: public/class-tmsm-werecruit-public.php:292
-msgid "Lowest price"
-msgstr "Prix le plus bas"
+#: public/class-tmsm-werecruit-public.php:352
+msgid "No job offers at the moment"
+msgstr "Aucune offre d’emploi pour le moment"
 
-#: public/class-tmsm-werecruit-public.php:293
-msgid "Last rooms"
-msgstr "Dernières disponibilités"
+#~ msgid "Availpro"
+#~ msgstr "Availpro"
 
-#: public/class-tmsm-werecruit-public.php:294
-msgid "Minimum stay"
-msgstr "Durée minimum"
+#~ msgid "Consumer key"
+#~ msgstr "Clé client"
 
-#: public/class-tmsm-werecruit-public.php:329
-msgctxt "date selection"
-msgid "From"
-msgstr "Du"
+#~ msgid "Consumer secret"
+#~ msgstr "Secret client"
 
-#: public/class-tmsm-werecruit-public.php:329
-msgctxt "date selection"
-msgid "to"
-msgstr "au"
+#~ msgid "Access token"
+#~ msgstr "Token d’accès"
 
-#: public/class-tmsm-werecruit-public.php:331
-msgid "Number of nights:"
-msgstr "Nombre de nuits :"
+#~ msgid "Token secret"
+#~ msgstr "Secret de token"
 
-#: public/class-tmsm-werecruit-public.php:332
-msgid "Minimum stay:"
-msgstr "Durée minimum :"
+#~ msgid "Group ID"
+#~ msgstr "Identifiant du groupe"
 
-#: public/class-tmsm-werecruit-public.php:375
-msgid "Book now"
-msgstr "Réserver maintenant"
+#~ msgid "Hotel ID"
+#~ msgstr "Identifiant de l'hôtel"
 
-#: public/class-tmsm-werecruit-public.php:896
-msgid "Token security not valid"
-msgstr "Le jeton de sécurité n’est pas valide"
+#~ msgid "Room IDs"
+#~ msgstr "Identifiants de chambre"
 
-#: public/class-tmsm-werecruit-public.php:910
-msgid "Date is empty"
-msgstr "La date est vide"
+#~ msgid "Separated by comma."
+#~ msgstr "Séparé par des virgules."
 
-#: public/class-tmsm-werecruit-public.php:917
-msgid "Nights number are empty"
-msgstr "Le nombre de nuit est vide"
+#~ msgid "Accommodation Rate IDs"
+#~ msgstr "Identifiants de prix de l’établissement"
 
-#: public/class-tmsm-werecruit-public.php:1021
-msgid "No availability"
-msgstr "Aucune disponibilité"
+#~ msgid "OTA Rate IDs"
+#~ msgstr "Identifiants de prix OTA"
+
+#~ msgid "Currency (ISO 4217 code)"
+#~ msgstr "Monnaie (code ISO 4217)"
+
+#~ msgid "Engine (format: name/id/)"
+#~ msgstr "Moteur (format : nom/identifiant/)"
+
+#~ msgid "Intro"
+#~ msgstr "Intro"
+
+#~ msgid "Html accepted. "
+#~ msgstr "Html accepté."
+
+#~ msgid "Outro"
+#~ msgstr "Outro"
+
+#~ msgid "Book Button Label"
+#~ msgstr "Libellé du bouton réservation"
+
+#~ msgid "Year Best Price Label"
+#~ msgstr "Libellé du meilleur prix annuel"
+
+#~ msgid "Html accepted. Use % as placeholder for price."
+#~ msgstr "Html accepté. Utilisez % pour afficher le prix."
+
+#~ msgid "Accommodation Price Label"
+#~ msgstr "Libellé du prix de l’établissement"
+
+#~ msgid "OTA Compare Label"
+#~ msgstr "Libellé du prix OTA"
+
+#~ msgid "Filters"
+#~ msgstr "Filtres"
+
+#~ msgid "Descriptions"
+#~ msgstr "Descriptions"
+
+#~ msgid "Calendar color for selected date"
+#~ msgstr "Couleur pour la date sélectionnée dans le calendrier"
+
+#~ msgid "Calendar color for range date"
+#~ msgstr "Couleur pour la plage sélectionnée dans le calendrier"
+
+#~ msgid "Calendar best price color"
+#~ msgstr "Couleur pour le meilleur prix dans le calendrier"
+
+#~ msgctxt "price"
+#~ msgid "From"
+#~ msgstr "À partir de"
+
+#~ msgid "Not available"
+#~ msgstr "Indisponible"
+
+#~ msgid "Available"
+#~ msgstr "Disponible"
+
+#~ msgid "Lowest price"
+#~ msgstr "Prix le plus bas"
+
+#~ msgid "Last rooms"
+#~ msgstr "Dernières disponibilités"
+
+#~ msgid "Minimum stay"
+#~ msgstr "Durée minimum"
+
+#~ msgctxt "date selection"
+#~ msgid "From"
+#~ msgstr "Du"
+
+#~ msgctxt "date selection"
+#~ msgid "to"
+#~ msgstr "au"
+
+#~ msgid "Number of nights:"
+#~ msgstr "Nombre de nuits :"
+
+#~ msgid "Minimum stay:"
+#~ msgstr "Durée minimum :"
+
+#~ msgid "Book now"
+#~ msgstr "Réserver maintenant"
+
+#~ msgid "Token security not valid"
+#~ msgstr "Le jeton de sécurité n’est pas valide"
+
+#~ msgid "Date is empty"
+#~ msgstr "La date est vide"
+
+#~ msgid "Nights number are empty"
+#~ msgstr "Le nombre de nuit est vide"
+
+#~ msgid "No availability"
+#~ msgstr "Aucune disponibilité"
 
 #~ msgid "Rate IDs (separated by comma)"
 #~ msgstr "Identifiants de tarifs (séparé par des virgules)"

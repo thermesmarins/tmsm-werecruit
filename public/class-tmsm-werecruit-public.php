@@ -168,42 +168,8 @@ class Tmsm_Werecruit_Public {
 	 */
 	public function enqueue_scripts() {
 
-		// Scripts
-		wp_dequeue_script('moment');
-		wp_deregister_script('moment');
-		wp_enqueue_script( 'moment', plugin_dir_url( dirname(__FILE__) ) . 'vendor/moment/min/moment.min.js', array( 'jquery' ), $this->version, true );
-		if ( function_exists( 'PLL' ) && $language = PLL()->model->get_language( get_locale() ) && pll_current_language() !== 'en')
-		{
-			$moment_locale = pll_current_language();
-			if ( pll_current_language() === 'zh' ) {
-				$moment_locale = 'zh-cn';
-			}
-
-			wp_enqueue_script( 'moment-'.$moment_locale, plugin_dir_url( dirname(__FILE__) ) . 'vendor/moment/locale/'.$moment_locale.'.js', array( 'jquery' ), $this->version, true );
-		}
-
-		wp_enqueue_script( 'clndr', plugin_dir_url( dirname(__FILE__) ) . 'vendor/clndr/clndr.min.js', array( 'jquery', 'moment', 'underscore' ), $this->version, true );
-
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/tmsm-werecruit-public.js', array( 'jquery', 'wp-util' ), $this->version, true );
 
-
-		// Params
-		$params = [
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'locale'   => $this->get_locale(),
-			'security' => wp_create_nonce( 'security' ),
-			'i18n'     => [
-				//'fromprice'          => _x( 'From', 'price', 'tmsm-werecruit' ),
-				//'yearbestpricelabel' => $this->get_option( 'yearbestpricelabel' ),
-				//'otacomparelabel' => $this->get_option( 'otacomparelabel' ),
-				//'selecteddatepricelabel' => $this->get_option( 'selecteddatepricelabel' ),
-			],
-			'options'  => [
-				//'currency' => $this->get_option( 'currency' ),
-			],
-		];
-
-		wp_localize_script( $this->plugin_name, 'tmsm_werecruit_params', $params);
 	}
 
 	/**

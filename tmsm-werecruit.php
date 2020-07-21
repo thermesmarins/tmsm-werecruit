@@ -8,7 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://github.com/nicomollet
+ * @link              https://github.com/thermesmarins/tmsm-werecruit
  * @since             1.0.0
  * @package           Tmsm_Werecruit
  *
@@ -19,7 +19,7 @@
  * Version:           1.0.0
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
- * Requires PHP:      5.6
+ * Requires PHP:      7.3
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       tmsm-werecruit

@@ -347,8 +347,6 @@ class Tmsm_Werecruit_Public {
 
 		$response = wp_remote_get($url, $headers);
 
-		error_log('response:');
-		error_log(print_r($response, true));
 		if( empty($response) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
 			error_log('WeRecruit empty response');
 			return;
@@ -364,12 +362,10 @@ class Tmsm_Werecruit_Public {
 			error_log('WeRecruit response not successful');
 			return;
 		}
-		error_log('WeRecruit 01');
 		if(!is_array($response_json->result) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
 			error_log('WeRecruit response results not an array');
 			return;
 		}
-		error_log('WeRecruit 02');
 		$sectors = []; // Sector
 		$jobtypes = []; // Job Type
 		$types = []; // Contract Type, example Permanent, Fixed-term

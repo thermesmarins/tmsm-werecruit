@@ -193,15 +193,14 @@ class Tmsm_Werecruit_Public {
 			'locale'   => $this->get_locale(),
 			'security' => wp_create_nonce( 'security' ),
 			'i18n'     => [
-				'fromprice'          => _x( 'From', 'price', 'tmsm-werecruit' ),
-				'yearbestpricelabel' => $this->get_option( 'yearbestpricelabel' ),
-				'otacomparelabel' => $this->get_option( 'otacomparelabel' ),
-				'selecteddatepricelabel' => $this->get_option( 'selecteddatepricelabel' ),
+				//'fromprice'          => _x( 'From', 'price', 'tmsm-werecruit' ),
+				//'yearbestpricelabel' => $this->get_option( 'yearbestpricelabel' ),
+				//'otacomparelabel' => $this->get_option( 'otacomparelabel' ),
+				//'selecteddatepricelabel' => $this->get_option( 'selecteddatepricelabel' ),
 			],
 			'options'  => [
-				'currency' => $this->get_option( 'currency' ),
+				//'currency' => $this->get_option( 'currency' ),
 			],
-			'data'     => $this->get_options_bestprice(),
 		];
 
 		wp_localize_script( $this->plugin_name, 'tmsm_werecruit_params', $params);
@@ -213,8 +212,7 @@ class Tmsm_Werecruit_Public {
 	 * @since    1.0.0
 	 */
 	public function register_shortcodes() {
-		add_shortcode( 'tmsm-werecruit-calendar', array( $this, 'calendar_shortcode') );
-		add_shortcode( 'tmsm-werecruit-bestprice-year', array( $this, 'bestpriceyear_shortcode') );
+		add_shortcode( 'tmsm-werecruit-offers', array( $this, 'shortcode_offers') );
 	}
 
 
@@ -235,268 +233,125 @@ class Tmsm_Werecruit_Public {
 	}
 
 	/**
-	 * Calendar shortcode
+	 * Offers shortcode
 	 *
 	 * @since    1.0.0
 	 */
-	public function calendar_shortcode($atts) {
+	public function shortcode_offers($atts) {
 		$atts = shortcode_atts( array(
 			'option' => '',
-		), $atts, 'tmsm-werecruit-calendar' );
+		), $atts, 'tmsm-werecruit-offers' );
 
-		$output = $this->calendar_template();
-		$output .= $this->form_template();
 
-		$output = '<div id="tmsm-werecruit-container">'.$output.'</div>';
-		return $output;
+
+		echo '<div id="tmsm-werecruit-container">';
+		$this->offers_cards();
+		echo '</div>';
 	}
 
 	/**
-	 * Best Price Year shortcode
+	 * Print Job Table
 	 *
-	 * @since    1.0.7
 	 */
-	public function bestpriceyear_shortcode($atts) {
-		$atts = shortcode_atts( array(
-			'roomid' => '',
-			'rateid' => '',
-		), $atts, 'tmsm-werecruit-bestprice-year' );
+	private function offers_cards(){
 
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log(print_r($atts, true));
-		}
 
-		$price = null;
-		$output = null;
-		$date = null;
-		$bestprice_year_requested = null;
 
-		$bestprice_year = get_option( 'tmsm-werecruit-bestprice-year', false );
+		$offers = get_option($this->plugin_name . '-offers');
 
-		if(!empty($atts['roomid']) && !empty($bestprice_year['Room'.$atts['roomid']])){
-			$bestprice_year_requested = $bestprice_year['Room'.$atts['roomid']];
-		}
-		elseif(!empty($atts['rateid']) && !empty($bestprice_year['Rate'.$atts['rateid']])){
-			$bestprice_year_requested = $bestprice_year['Rate'.$atts['rateid']];
+
+		if(!empty($offers)){
+
+
+			echo '<p>'.sprintf( esc_html( _n( '%d job offers', '%d job offers', count($offers), 'tmsm-werecruit'  ) ), count($offers) ).'</p>';
+
+			/*echo '<table>
+			<thead>
+			<th>'.__('Title','tmsm-werecruit').'</th>
+			<th>'.__('Sectors','tmsm-werecruit').'</th>
+			<th>'.__('Category','tmsm-werecruit').'</th>
+			<th>'.__('Location','tmsm-werecruit').'</th>
+			<th>'.__('Contract Type','tmsm-werecruit').'</th>
+			<th>'.__('Rythm','tmsm-werecruit').'</th>
+			<th>'.__('Company','tmsm-werecruit').'</th>
+			</thead>
+			<tbody>
+			';*/
+
+			foreach($offers as $offer){
+
+				$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+					[
+						'elType' => 'widget',
+						'widgetType' => 'call-to-action',
+						'id' => 'joboffer-',
+						'settings' => [
+							'title' => $offer->title,
+							'url' => $offer->url,
+							'link' => [
+								'url' => $offer->url,
+								'is_external' => '',
+								'nofollow' => '',
+								'custom_attributes' => '',
+							],
+							'image' => [
+								'url' => $offer->ribbonAssetUrl,
+							],
+							'bg_image' => [
+								'url' => $offer->ribbonAssetUrl,
+							],
+
+							'description' => '
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-calendar-alt"></i> '.$offer->contract.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-business-time"></i> '.$offer->company.'</span>
+							',
+							'button' => __('Apply','tmsm-werecruit'),
+							'skin' => 'classic',
+							'layout' => 'left',
+							'alignment' => 'left',
+							'vertical_position' => 'top',
+							'image_min_width' => [
+								'unit' => 'px',
+								'size' => '169',
+								'sizes' => [],
+							],
+							'image_min_height' => [
+								'unit' => 'px',
+								'size' => '43',
+								'sizes' => [],
+							],
+							// $offer->sector
+							//$offer->jobType
+						],
+					],
+					[]
+				);
+				$heading_widget->print_element();
+
+				/*$output .= '
+					<tr>
+						<td><a href="'.$offer->url.'">'.$offer->title.'</a></td>
+						<td>'.$offer->sector.'</td>
+						<td>'.$offer->jobType.'</td>
+						<td>'.$offer->addressCity.'</td>
+						
+						<td>'.$offer->type.'</td>
+						<td>'.$offer->contract.'</td>
+						
+						<td>'.$offer->company.'</td>
+					</tr>
+				';*/
+			}
+
+
+			//$output .= '</tbody></table>';
 		}
 		else{
-			$bestprice_year_requested = (!empty($bestprice_year['Overall']) ? $bestprice_year['Overall'] : null);
+			echo '<p>'.__('No job offers at the moment','tmsm-werecruit').'</p>';
 		}
 
-		if ( !empty($bestprice_year_requested) && !empty($bestprice_year_requested['Price'])) {
-			$price = sanitize_text_field($bestprice_year_requested['Price']);
-			if ( !empty($bestprice_year_requested['Date'])) {
-				$date = sanitize_text_field($bestprice_year_requested['Date']);
-			}
-		}
-
-		if(!empty($price)){
-			$output = '<span class="tmsm-werecruit-bestprice-year" data-date="'.$date.'" data-price="'.$price.'" data-roomid="'.(!empty($atts['roomid'])?esc_attr__($atts['roomid']):'').'" data-rateid="'.(!empty($atts['rateid'])?esc_attr__($atts['rateid']):'').'"></span>';
-		}
-		return $output;
-	}
-
-	/**
-	 * Legend template
-	 *
-	 * @return string
-	 */
-	private function legend_template(){
-		$output = '
-		        <div class="tmsm-werecruit-form-legend">
-                <p class="legend-item legend-item-notavailable">'.__('Not available','tmsm-werecruit').'</p>
-                <p class="legend-item legend-item-available">'.__('Available','tmsm-werecruit').'</p>
-                <p class="legend-item legend-item-lowestprice">'.__('Lowest price','tmsm-werecruit').'</p>
-                <p class="legend-item legend-item-lastrooms">'.__('Last rooms','tmsm-werecruit').'</p>
-                <p class="legend-item legend-item-minstay">'.__('Minimum stay','tmsm-werecruit').'</p>
-	        </div>';
-		return $output;
-	}	
-		
-	/**
-	 * Form template
-	 *
-	 * @return string
-	 */
-	private function form_template(){
-
-		$today = new Datetime();
-		$tomorrow = (new DateTime())->modify('+1 day');
-
-		$output = '
-		<form target="_blank" action="'.self::ENGINE_URL.$this->get_option('engine').'" method="get" id="tmsm-werecruit-form">
-		
-		<input type="hidden" name="language" value="'.$this->get_locale().'">
-		<input type="hidden" name="arrivalDate" value="" id="tmsm-werecruit-form-arrivaldate">
-		<input type="hidden" name="nights" value="1" id="tmsm-werecruit-form-nights">
-		<input type="hidden" name="checkinDate" value="" id="tmsm-werecruit-form-checkindate">
-		<input type="hidden" name="checkoutDate" value="" id="tmsm-werecruit-form-checkoutdate">
-		<input type="hidden" name="selectedAdultCount" value="2">
-		<input type="hidden" name="selectedChildCount" value="0">
-		<input type="hidden" name="guestCountSelector" value="ReadOnly">
-		<input type="hidden" name="rate" value="">
-		<input type="hidden" name="roomid" value="">
-		<input type="hidden" name="showSearch" value="true">
-		
-        <div class="tmsm-werecruit-form-fields">
-
-			'.(!empty($this->get_option('intro')) ? '<p id="tmsm-werecruit-form-intro">'.html_entity_decode( $this->get_option('intro')).'</p>' : '' ).'
-			
-			<p id="tmsm-werecruit-form-dates-container" style="display: none">
-				' . _x( 'From', 'date selection',  'tmsm-werecruit' ) . ' <span id="tmsm-werecruit-form-checkindateinfo"></span> ' . _x( 'to', 'date selection', 'tmsm-werecruit' ) . ' <span id="tmsm-werecruit-form-checkoutdateinfo"></span>
-			</p>
-            <p id="tmsm-werecruit-form-nights-message" data-value="0">'.__('Number of nights:','tmsm-werecruit').' <span id="tmsm-werecruit-form-nights-number"></span></p>
-            <p id="tmsm-werecruit-form-minstay-message" data-value="0">'.__('Minimum stay:','tmsm-werecruit').' <span id="tmsm-werecruit-form-minstay-number"></span></p>
-			';
-
-		/*$output.='
-
-			<p>
-				<label for="tmsm-werecruit-form-adults" id="tmsm-werecruit-form-adults-label">'.__( 'Number of adults:', 'tmsm-werecruit' ).'</label>
-				<select name="selectedAdultCount" id="tmsm-werecruit-form-adults">
-				<option value="2">'.__( 'Number of adults', 'tmsm-werecruit' ).'</option>';
-
-
-				for ( $adults = 1; $adults <= 6; $adults ++ ) {
-					$output .= '<option value="' . $adults . '">';
-					$output .= sprintf( _n( '%s adult', '%s adults', $adults, 'tmsm-werecruit' ), number_format_i18n( $adults ) );
-					$output .= '</option>';
-				}
-
-		$output.='
-
-				</select>
-			</p>';
-		*/
-
-		$theme = wp_get_theme();
-		$buttonclass = '';
-		if ( 'StormBringer' == $theme->get( 'Name' ) || 'stormbringer' == $theme->get( 'Template' ) ) {
-			$buttonclass = 'btn btn-primary';
-		}
-		if ( 'OceanWP' == $theme->get( 'Name' ) || 'oceanwp' == $theme->get( 'Template' ) ) {
-			$buttonclass = 'button';
-		}
-
-		/**
-		 *             <a href="'.self::ENGINE_URL.$this->get_option('engine').'" id="tmsm-werecruit-form-submit" class="'.$buttonclass.'">' .(!empty($this->get_option('bookbuttonlabel')) ? html_entity_decode($this->get_option('bookbuttonlabel')) : __( 'Book now', 'tmsm-werecruit' ) ). '</a>
-		 */
-
-        $output.='  
-            <p id="tmsm-werecruit-calculatetotal-results">
-                <span id="tmsm-werecruit-calculatetotal-totalprice" style="display: none"></span>
-                <span id="tmsm-werecruit-calculatetotal-errors" style="display: none"></span>
-                <i class="fa fa-spinner fa-spin" aria-hidden="true" id="tmsm-werecruit-calculatetotal-loading" style="display: none"></i>
-			</p>
-            <p>
-            <button type="submit" id="tmsm-werecruit-form-submit" class="'.$buttonclass.'">' .(!empty($this->get_option('bookbuttonlabel')) ? html_entity_decode($this->get_option('bookbuttonlabel')) : __( 'Book now', 'tmsm-werecruit' ) ). '</button>
-            </p>
-            <p id="tmsm-werecruit-calculatetotal-ota" style="display: none"></p>
-            '.(!empty($this->get_option('outro')) ? '<div id="tmsm-werecruit-form-outro">'.html_entity_decode($this->get_option('outro')).'</div>' : '' ).'
-            </div>
-            </form>
-            <form action="" method="post" id="tmsm-werecruit-calculatetotal">
-			'.wp_nonce_field( 'tmsm-werecruit-calculatetotal-nonce-action', 'tmsm-werecruit-calculatetotal-nonce', true, false ).'        
-			</form>
-		';//<button type="submit" id="tmsm-werecruit-calculatetotal-submit">Submit</button>
-		return $output;
-	}
-
-	/**
-	 * Display calendar template
-	 *
-	 * @return string
-	 */
-	private function calendar_template(){
-		$output = '
-<div id="tmsm-werecruit-calendar">
-<script id="tmsm-werecruit-calendar-template" type="text/template">
-
-        <table class="table-calendarprices table-condensed" border="0" cellspacing="0" cellpadding="0">
-            <thead>
-            <tr class="clndr-controls">
-                <th class="clndr-control-button clndr-control-button-previous">
-                    <span class="clndr-previous-button">&larr;</span>
-                </th>
-                <th class="month" colspan="5">
-                    <%= month %> <%= year %>
-                </th>
-                <th class="clndr-control-button clndr-control-button-next">
-                    <span class="clndr-next-button">&rarr;</span>
-                </th>
-            </tr>
-            <tr class="header-days">
-
-                <% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
-<th class="header-day">
-                    <span class="hide"><%= moment().weekday(i).format(\'dd\').charAt(0) %></span>
-                    <span class=""><%= daysOfTheWeek[i] %></span>
-                </th>
-                <% } %>
-            </tr>
-            </thead>
-            <tbody>
-            <% for(var i = 0; i < numberOfRows; i++){ %>
-            <tr>
-                <% for(var j = 0; j < 7; j++){ %>
-                <% var d = j + i * 7; %>
-                <td class="<%= days[d].classes %>" data-daynumber="<%= days[d].day %>">
-
-                    <% if (days[d].events.length != 0) { %>
-                    <% _.each(days[d].events, function(event) { %>
-                    <div class="cell" data-price="<%= event.Price %>" data-status="<%= event.Status %>"  data-lowestprice="<%= event.LowestPrice %>" data-availability="<%= event.Availability %>" data-minstay="<%= event.MinimumStayThrough %>">
-                        <span class="day-number"><%= days[d].day %></span>
-                        <span class="minstay">⇾</span>
-                        <p class="price" data-test="<%= event.Test %>"><%= event.PriceWithCurrency %></p>
-                    </div>
-                    <% }) %>
-
-                    <% } else { %>
-
-                    <div class="cell">
-                        <span class="day-number"><%= days[d].day %></span>
-                        <p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </div>
-                    <% } %>
-                </td>
-                <% } %>
-            </tr>
-            <% } %>
-            </tbody>
-        </table>
-
-</script>
-</div>
-';
-
-		$output = '<div id="tmsm-werecruit-calendar-container">'.$output.$this->legend_template().'</div>';
-		return $output;
-	}
-
-	/**
-	 * Get options for all bestprices months
-	 *
-	 * @return array
-	 * @throws Exception
-	 */
-	private function get_options_bestprice(){
-
-		$data = [];
-
-		// Browse 12 next months
-		$date = new Datetime();
-		$date->modify('-1 month');
-		$i=0;
-		while($i<=12){
-			$date->modify('+1 month');
-			$month_data = get_option('tmsm-werecruit-bestprice-'.$date->format('Y-m'), false);
-			if(!empty($month_data)){
-				$data[$date->format('Y-m')] = $month_data;
-			}
-			$i++;
-		}
-
-		return $data;
 	}
 
 	/**
@@ -622,183 +477,5 @@ class Tmsm_Werecruit_Public {
 		delete_option( 'tmsm-werecruit-bestprice-'.$today->modify('-1 month')->format('Y-m') );*/
 	}
 
-
-	/**
-	 * Ajax calculate total price
-	 *
-	 * @since    1.0.0
-	 */
-	public static function ajax_calculate_totalprice() {
-
-		$security = sanitize_text_field( $_POST['security'] );
-		$date_begin = sanitize_text_field( $_POST['date_begin'] );
-		$date_end = sanitize_text_field( $_POST['date_end'] );
-		$nights = sanitize_text_field( $_POST['nights'] );
-
-		$errors = array(); // Array to hold validation errors
-		$jsondata   = array(); // Array to pass back data
-
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log('ajax_calculate_totalprice');
-		}
-
-		// Check security
-		if ( empty( $security ) || ! wp_verify_nonce( $security, 'tmsm-werecruit-calculatetotal-nonce-action' ) ) {
-			$errors[] = __('Token security not valid', 'tmsm-werecruit');
-			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-				error_log('Ajax security not OK');
-			}
-		}
-		else{
-			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-				error_log('Ajax security OK');
-			}
-
-			check_ajax_referer( 'tmsm-werecruit-calculatetotal-nonce-action', 'security' );
-
-			// Check date begin
-			if(empty($date_begin)){
-				$errors[] = __('Date is empty', 'tmsm-werecruit');
-				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					error_log('Date is empty');
-				}
-			}
-			// Check nights number
-			if(empty($nights)){
-				$errors[] = __('Nights number are empty', 'tmsm-werecruit');
-				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					error_log('Nights number is empty');
-				}
-			}
-
-
-			// All rates
-			$rates = [ 'accommodation', 'ota'];
-			$options = get_option('tmsm-werecruit-options', false);
-			foreach($rates as $rate){
-				$rateids = $options[$rate.'rateids'];
-
-				if(!empty($rateids)){
-					// Calculate price
-					$webservice = new Tmsm_Werecruit_Webservice();
-					$response   = $webservice->get_stayplanning( $date_begin, $nights, $rateids);
-					$data       = $webservice::convert_to_array( $response );
-					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-						error_log('response:');
-						error_log($response);
-					}
-
-					// Init data var
-					$dailyplanning_bestprice = [];
-					if ( ! empty( $data ) ) {
-						if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-							error_log( 'Data responsee' );
-						}
-
-						if ( isset( $data['response']['success'] ) ) {
-							if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-								error_log( 'data success' );
-							}
-							if ( isset( $data['response']['stayPlanning'] ) ) {
-
-								if ( isset( $data['response']['stayPlanning']['ratePlan']['hotel'] )
-								     && is_array( $data['response']['stayPlanning']['ratePlan']['hotel'] ) ) {
-
-									foreach ( $data['response']['stayPlanning']['ratePlan']['hotel']['entity'] as $entity ) {
-										if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-											error_log( 'Entity: roomId=' . $entity['@attributes']['roomId'] . ' rateId=' . $entity['@attributes']['rateId'] );
-										}
-
-										$properties = $entity['property'];
-
-										if(!isset($properties[0])){
-											if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-												error_log( 'properties not multiple');
-											}
-											$tmp = $properties;
-											unset($properties);
-											$properties[0] = $tmp;
-										}
-
-										$dailyplanning_bestprice_entity = [];
-
-										foreach ( $properties as $property ) {
-
-											$propertyname = $property['@attributes']['name'];
-
-											@$dailyplanning_bestprice_entity[$propertyname] = $property['@attributes']['value'];
-
-										}
-
-										ksort($dailyplanning_bestprice_entity);
-										if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-											//error_log('dailyplanning_bestprice_entity:');
-											//error_log(print_r($dailyplanning_bestprice_entity, true));
-										}
-
-										// Merge data
-										if(empty($dailyplanning_bestprice) && @$dailyplanning_bestprice_entity['Status'] !== 'NotAvailable'){
-											$dailyplanning_bestprice = $dailyplanning_bestprice_entity;
-										}
-										else{
-											if(!empty($dailyplanning_bestprice_entity['Price']) && !empty($dailyplanning_bestprice['Price']) ){
-												// New Price is less than merged data
-												if(
-													$dailyplanning_bestprice_entity['Price'] < $dailyplanning_bestprice['Price']
-													&& @$dailyplanning_bestprice_entity['Status'] !== 'NotAvailable'
-												){
-													$dailyplanning_bestprice = $dailyplanning_bestprice_entity;
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-						//error_log('dailyplanning_bestprice:');
-						//error_log(print_r($dailyplanning_bestprice, true));
-					}
-
-					$totalprice = null;
-					if ( ! empty( $dailyplanning_bestprice ) && @$dailyplanning_bestprice['Status'] !== 'NotAvailable' ) {
-						$totalprice = $dailyplanning_bestprice['Price'];
-						$jsondata['data'][$rate] = [
-							'totalprice' => money_format( '%.2n', $totalprice ),
-						];
-					} else {
-						if($rate == 'accommodation'){
-							$errors[] = __( 'No availability', 'tmsm-werecruit' );
-						}
-					}
-				}
-				else{
-					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-						error_log('rateids empty:');
-					}
-				}
-			}
-		}
-
-
-		// Return a response
-		if( ! empty($errors) ) {
-			$jsondata['success'] = false;
-			$jsondata['errors']  = $errors;
-		}
-		else {
-			$jsondata['success'] = true;
-		}
-
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log('json data:');
-			error_log(print_r($jsondata, true));
-		}
-
-		wp_send_json($jsondata);
-		wp_die();
-
-    }
 
 }

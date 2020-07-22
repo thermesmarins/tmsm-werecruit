@@ -25,4 +25,7 @@
 #tmsm-werecruit-container #tmsm-werecruit-filterform {
   margin-bottom: 20px;
 }
+#tmsm-werecruit-container #tmsm-werecruit-filterform > * {
+  vertical-align: middle;
+}
 /*# sourceMappingURL=tmsm-werecruit-public.css.map */

@@ -1,3 +1,5 @@
+* Filter form: align selects and submit button 
+
 ### 1.0.1: July 22nd, 2020
 * Remove Clndr dependency
 * Remove Moment dependency

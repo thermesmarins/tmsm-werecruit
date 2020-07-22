@@ -227,6 +227,37 @@ class Tmsm_Werecruit_Admin {
 			)
 		);
 
+		foreach( ['sector', 'jobType', 'type', 'contract', 'addressCity', 'company' ] as $filter_key ){
+
+			$filter_name = '';
+			switch ($filter_key){
+				case 'sector': $filter_name = __('Activity Sector', 'tmsm-werecruit');break;
+				case 'jobType': $filter_name = __('Job Type', 'tmsm-werecruit');break;
+				case 'type': $filter_name = __('Contract Type', 'tmsm-werecruit');break;
+				case 'contract': $filter_name = __('Rythm', 'tmsm-werecruit');break;
+				case 'addressCity': $filter_name = __('Location', 'tmsm-werecruit');break;
+				case 'company': $filter_name = __('Company', 'tmsm-werecruit');break;
+			}
+
+			add_settings_field(
+				$filter_key,
+				esc_html( $filter_name ),
+				array( $this, 'field_select' ),
+				$this->plugin_name,
+				$this->plugin_name . '-filters',
+				array(
+					//'description' 	=> 'This message displays on the page if no job postings are found.',
+					'id' => $filter_key,
+					'aria' => esc_html( $filter_name ),
+					'selections' 		=> [
+						['label' => __('Yes', 'tmsm-werecruit'), 'value' => 'yes'],
+						['label' => __('No', 'tmsm-werecruit'), 'value' => 'no'],
+					],
+				)
+			);
+		}
+
+
 	}
 
 	/**
@@ -241,14 +272,14 @@ class Tmsm_Werecruit_Admin {
 			$this->plugin_name
 		);
 
-		/*
+
 		add_settings_section(
 			$this->plugin_name . '-filters',
 			esc_html__( 'Filters', 'tmsm-werecruit' ),
 			array( $this, 'section_filters' ),
 			$this->plugin_name
 		);
-		*/
+
 
 	}
 
@@ -484,6 +515,10 @@ class Tmsm_Werecruit_Admin {
 	public static function get_options_list() {
 		$options   = array();
 		$options[] = array( 'apikey', 'text', '' );
+
+		foreach( ['sector', 'jobType', 'type', 'contract', 'addressCity', 'company' ] as $filter_key ){
+			$options[] = array( $filter_key, 'select', 'no' );
+		}
 
 		return $options;
 	}

@@ -15,3 +15,14 @@
   float: left;
   width: 70%;
 }
+#tmsm-werecruit-container .loading {
+  opacity: 0.5;
+}
+#tmsm-werecruit-container select {
+  width: 20%;
+  margin-right: 15px;
+}
+#tmsm-werecruit-container #tmsm-werecruit-filterform {
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=tmsm-werecruit-public.css.map */

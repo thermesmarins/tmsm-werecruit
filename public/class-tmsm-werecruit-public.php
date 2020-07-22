@@ -106,6 +106,22 @@ class Tmsm_Werecruit_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/tmsm-werecruit-public.js', array( 'jquery', 'wp-util' ), $this->version, true );
 
+		// Params
+		$params = [
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'locale'   => $this->get_locale(),
+			'security' => wp_create_nonce( 'security' ),
+			'i18n'     => [
+				'loading'          => __( 'Loading...', 'tmsm-werecruit' ),
+				'loadingexplaination'          => __( 'Jobs offers are being refreshed...', 'tmsm-werecruit' ),
+			],
+			'options'  => [
+				//'currency' => $this->get_option( 'currency' ),
+			],
+		];
+
+		wp_localize_script( $this->plugin_name, 'tmsm_werecruit_params', $params);
+
 	}
 
 	/**
@@ -144,30 +160,100 @@ class Tmsm_Werecruit_Public {
 			'option' => '',
 		), $atts, 'tmsm-werecruit-offers' );
 
+		$filters = get_option($this->plugin_name . '-filters');
+
 
 
 		echo '<div id="tmsm-werecruit-container">';
-		$this->offers_cards();
+
+		if(!empty($filters)){
+
+			echo '<form action="'.admin_url('admin-ajax.php').'" method="post" id="tmsm-werecruit-filterform">';
+
+			foreach ($filters as $filter_key => $filter_values){
+
+				$filter_name = '';
+				switch ($filter_key){
+					case 'sector': $filter_name = __('Activity Sector', 'tmsm-werecruit');break;
+					case 'jobType': $filter_name = __('Job Type', 'tmsm-werecruit');break;
+					case 'type': $filter_name = __('Contract Type', 'tmsm-werecruit');break;
+					case 'contract': $filter_name = __('Rythm', 'tmsm-werecruit');break;
+					case 'addressCity': $filter_name = __('Location', 'tmsm-werecruit');break;
+					case 'company': $filter_name = __('Company', 'tmsm-werecruit');break;
+				}
+				if(is_array($filter_values) && $this->get_option($filter_key) === 'yes'){
+					echo '<select id="tmsm-werecruit-'.$filter_key.'" title="'.esc_attr($filter_name).'" name="'.esc_attr($filter_key).'">';
+					echo '<option value="">'.$filter_name.'</option>';
+					foreach ($filter_values as $filter_value){
+						echo '<option value="'.$filter_value.'" '.selected($_REQUEST[$filter_key], $filter_value).'>'.$filter_value.'</option>';
+					}
+					echo '</select>';
+
+				}
+			}
+
+			echo '
+			<button class="button" id="tmsm-werecruit-submit">'.__('Filter', 'tmsm-werecruit').'</button>
+			<input type="hidden" name="action" value="tmsm-werecruit-jobsfilter">
+		</form>';
+
+		}
+
+
+		echo '<div id="tmsm-werecruit-filterresponse">';
+		$this->offers_cards($this->jobs_all());
 		echo '</div>';
+
+		echo '</div>';
+	}
+
+
+	public function jobs_filter(){
+
+		$jobs = $this->jobs_all();
+
+		$jobs_filtered = [];
+
+		if ( ! empty( $jobs ) && is_array( $jobs ) ) {
+			foreach ($jobs as $job){
+				$match = true;
+				foreach( ['sector', 'jobType', 'type', 'contract', 'addressCity', 'company' ] as $filter_key ){
+					if( (!empty($_POST[$filter_key]) && $job->{$filter_key} != $_POST[$filter_key])){
+						$match &= false;
+					}
+				}
+				if($match){
+					$jobs_filtered[] = $job;
+				}
+			}
+
+		}
+
+		$this->offers_cards($jobs_filtered);
+		die();
+	}
+
+
+	/**
+	 * Get All Jobs
+	 */
+	private function jobs_all(){
+		return get_option($this->plugin_name . '-offers');;
 	}
 
 	/**
 	 * Print Job Table
 	 *
 	 */
-	private function offers_cards(){
+	private function offers_cards($jobs){
 
 
-
-		$offers = get_option($this->plugin_name . '-offers');
-
-
-		if(!empty($offers)){
+		if(!empty($jobs)){
 
 
-			echo '<p>'.sprintf( esc_html( _n( '%d job offers', '%d job offers', count($offers), 'tmsm-werecruit'  ) ), count($offers) ).'</p>';
+			echo '<p id="tmsm-werecruit-loadingexplaination">'.sprintf( esc_html( _n( '%d job offers', '%d job offers', count($jobs), 'tmsm-werecruit'  ) ), count($jobs) ).'</p>';
 
-			foreach($offers as $offer){
+			foreach($jobs as $offer){
 
 				if(class_exists('\Elementor\Plugin')){
 					$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
@@ -310,12 +396,12 @@ class Tmsm_Werecruit_Public {
 		}
 
 		$filters = [
-			'sectors' => $sectors,
-			'jobtypes' => $jobtypes,
-			'types' => $types,
-			'contracts' => $contracts,
-			'cities' => $cities,
-			'companies' => $companies,
+			'sector' => $sectors,
+			'jobType' => $jobtypes,
+			'type' => $types,
+			'contract' => $contracts,
+			'addressCity' => $cities,
+			'company' => $companies,
 		];
 		update_option('tmsm-werecruit-filters', $filters);
 		update_option('tmsm-werecruit-offers', $offers);

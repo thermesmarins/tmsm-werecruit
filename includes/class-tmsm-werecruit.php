@@ -221,8 +221,8 @@ class Tmsm_Werecruit {
 		$this->loader->add_action( 'wp_update_plugins', $plugin_public, 'check_cron_schedule_exists' );
 
 		// Ajax
-		$this->loader->add_action( 'wp_ajax_tmsm-werecruit-calculatetotal', $plugin_public, 'ajax_calculate_totalprice' );
-		$this->loader->add_action( 'wp_ajax_nopriv_tmsm-werecruit-calculatetotal', $plugin_public, 'ajax_calculate_totalprice' );
+		$this->loader->add_action( 'wp_ajax_tmsm-werecruit-jobsfilter', $plugin_public, 'jobs_filter' );
+		$this->loader->add_action( 'wp_ajax_nopriv_tmsm-werecruit-jobsfilter', $plugin_public, 'jobs_filter' );
 
 	}
 

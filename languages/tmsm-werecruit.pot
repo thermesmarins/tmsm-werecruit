@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WeRecruit\n"
-"POT-Creation-Date: 2020-07-21 15:45+0200\n"
+"POT-Creation-Date: 2020-07-22 15:46+0200\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 
 #: admin/class-tmsm-werecruit-admin.php:99
-#: admin/class-tmsm-werecruit-admin.php:509
+#: admin/class-tmsm-werecruit-admin.php:544
 msgid "TMSM WeRecruit Cron Schedule Exists"
 msgstr ""
 
@@ -46,28 +46,70 @@ msgstr ""
 msgid "API Key"
 msgstr ""
 
+#: admin/class-tmsm-werecruit-admin.php:234
+#: public/class-tmsm-werecruit-public.php:177
+msgid "Activity Sector"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:235
+#: public/class-tmsm-werecruit-public.php:178
+msgid "Job Type"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:236
+#: public/class-tmsm-werecruit-public.php:179
+msgid "Contract Type"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:237
+#: public/class-tmsm-werecruit-public.php:180
+msgid "Rythm"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:238
+#: public/class-tmsm-werecruit-public.php:181
+msgid "Location"
+msgstr ""
+
 #: admin/class-tmsm-werecruit-admin.php:239
+#: public/class-tmsm-werecruit-public.php:182
+msgid "Company"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:253
+msgid "Yes"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:254
+msgid "No"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:270
 msgid "API"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:512
+#: admin/class-tmsm-werecruit-admin.php:278
+msgid "Filters"
+msgstr ""
+
+#: admin/class-tmsm-werecruit-admin.php:547
 msgid "Performance"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:517
+#: admin/class-tmsm-werecruit-admin.php:552
 msgid "Cron Schedule is not fired"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:526
+#: admin/class-tmsm-werecruit-admin.php:561
 msgid "TMSM WeRecruit Cron Schedule is not added"
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:529
+#: admin/class-tmsm-werecruit-admin.php:564
 msgid ""
 "Cron schedule is not fired, prices will not update from Availpro."
 msgstr ""
 
-#: admin/class-tmsm-werecruit-admin.php:534
+#: admin/class-tmsm-werecruit-admin.php:569
 msgid "Disable and enable again the plugin"
 msgstr ""
 
@@ -91,23 +133,35 @@ msgstr ""
 msgid "Every 4 hours"
 msgstr ""
 
-#: public/class-tmsm-werecruit-public.php:228
-#: public/class-tmsm-werecruit-public.php:229
+#: public/class-tmsm-werecruit-public.php:115
+msgid "Loading..."
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:116
+msgid "Jobs offers are being refreshed..."
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:146
+#: public/class-tmsm-werecruit-public.php:147
 #, php-format
 msgid "TMSM WeRecruit cron is not scheduled on %s"
 msgstr ""
 
-#: public/class-tmsm-werecruit-public.php:266
+#: public/class-tmsm-werecruit-public.php:196
+msgid "Filter"
+msgstr ""
+
+#: public/class-tmsm-werecruit-public.php:254
 #, php-format
 msgid "%d job offers"
 msgid_plural "%d job offers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: public/class-tmsm-werecruit-public.php:298
+#: public/class-tmsm-werecruit-public.php:286
 msgid "Apply"
 msgstr ""
 
-#: public/class-tmsm-werecruit-public.php:324
+#: public/class-tmsm-werecruit-public.php:312
 msgid "No job offers at the moment"
 msgstr ""

@@ -1,4 +1,5 @@
-* Filter form: align selects and submit button 
+* Filter form: align selects and submit button
+* Hide customize link
 
 ### 1.0.1: July 22nd, 2020
 * Remove Clndr dependency

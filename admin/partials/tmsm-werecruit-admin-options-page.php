@@ -12,7 +12,7 @@
 ?>
 <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
-<p><?php echo '<a href="' . admin_url( 'customize.php') . '">'.__('Customize colors', 'tmsm-werecruit').'</a>' ?></p>
+<!--<p><?php echo '<a href="' . admin_url( 'customize.php') . '">'.__('Customize colors', 'tmsm-werecruit').'</a>' ?></p>-->
 
 <form method="post" action="options.php"><?php
 	settings_fields( $this->plugin_name . '-options' );

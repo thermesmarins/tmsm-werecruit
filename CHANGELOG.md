@@ -1,6 +1,8 @@
+* Paragraph styling on mobile
+* Image width
+
 ### 1.0.3: September 23rd, 2020
 * Paragraph styling
-* Image width
 
 ### 1.0.2: September 23rd, 2020
 * Filter form: align selects and submit button

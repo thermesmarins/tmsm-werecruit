@@ -16,7 +16,7 @@
  * Plugin Name:       TMSM WeRecruit
  * Plugin URI:        https://github.com/thermesmarins/tmsm-werecruit
  * Description:       Display Recruit job offers
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
  * Requires PHP:      7.3
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_WERECRUIT_VERSION', '1.0.3' );
+define( 'TMSM_WERECRUIT_VERSION', '1.0.4' );
 
 /**
  * The code that runs during plugin activation.

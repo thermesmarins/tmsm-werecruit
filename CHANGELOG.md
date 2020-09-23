@@ -1,3 +1,4 @@
+### 1.0.4: September 23rd, 2020
 * Paragraph styling on mobile
 * Image width
 

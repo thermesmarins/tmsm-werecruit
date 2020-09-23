@@ -246,14 +246,23 @@ class Tmsm_Werecruit_Public {
 	 *
 	 */
 	private function offers_cards($jobs){
-
+		global $wpdb;
 
 		if(!empty($jobs)){
-
 
 			echo '<p id="tmsm-werecruit-loadingexplaination">'.sprintf( esc_html( _n( '%d job offers', '%d job offers', count($jobs), 'tmsm-werecruit'  ) ), count($jobs) ).'</p>';
 
 			foreach($jobs as $offer){
+
+				$image = null;
+
+				if ( ! empty( $offer->company ) ) {
+					$image_object = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE post_title = %s AND post_type='attachment'", trim('WeRecruit Logo '.$offer->company) ));
+					if(!empty($image_object)) {
+						$image = wp_get_attachment_url($image_object->ID);
+					}
+
+				}
 
 				if(class_exists('\Elementor\Plugin')){
 					$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
@@ -263,6 +272,7 @@ class Tmsm_Werecruit_Public {
 							'id' => 'joboffer-',
 							'settings' => [
 								'title' => $offer->title,
+								'title_tag' => 'h3',
 								'url' => $offer->url,
 								'link' => [
 									'url' => $offer->url,
@@ -271,21 +281,22 @@ class Tmsm_Werecruit_Public {
 									'custom_attributes' => '',
 								],
 								'image' => [
-									'url' => $offer->ribbonAssetUrl,
+									'url' => $image,
 								],
 								'bg_image' => [
-									'url' => $offer->ribbonAssetUrl,
+									'url' => $image,
 								],
 
 								'description' => '
-							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
+							'.'<p><span class="tmsm-werecruit-joboffer-company">'.$offer->company.'</span></p>
+							'.'<p><span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-calendar-alt"></i> '.$offer->contract.'</span>
-							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span>
-							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-business-time"></i> '.$offer->company.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span></p>
 							',
 								'button' => __('Apply','tmsm-werecruit'),
 								'skin' => 'classic',
 								'layout' => 'left',
+								'layout_mobile' => 'above',
 								'alignment' => 'left',
 								'vertical_position' => 'top',
 								'image_min_width' => [

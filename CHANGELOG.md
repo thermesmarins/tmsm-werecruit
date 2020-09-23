@@ -1,3 +1,4 @@
+### 1.0.2: September 23rd, 2020
 * Filter form: align selects and submit button
 * Hide customize link
 * Image are now called dynamically with the name "WeRecruit Logo %s" where %s is the company name of the job offer in WeRecruit, instead of getting the image in the job offer

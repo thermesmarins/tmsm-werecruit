@@ -14,11 +14,18 @@
     text-align: right;
   }
 }
+#tmsm-werecruit-container .elementor-cta__description {
+  margin-bottom: 0;
+}
 @media (min-width: 768px) {
   #tmsm-werecruit-container .elementor-cta__description {
     float: left;
     width: 70%;
   }
+}
+#tmsm-werecruit-container .elementor-cta__description *,
+#tmsm-werecruit-container .elementor-cta__description p:last-child {
+  margin-bottom: 0;
 }
 #tmsm-werecruit-container .loading {
   opacity: 0.5;

@@ -1,3 +1,5 @@
+* Paragraph styling
+
 ### 1.0.2: September 23rd, 2020
 * Filter form: align selects and submit button
 * Hide customize link

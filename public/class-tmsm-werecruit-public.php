@@ -265,7 +265,7 @@ class Tmsm_Werecruit_Public {
 				}
 
 				if(class_exists('\Elementor\Plugin')){
-					$heading_widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+					$widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
 						[
 							'elType' => 'widget',
 							'widgetType' => 'call-to-action',
@@ -313,7 +313,51 @@ class Tmsm_Werecruit_Public {
 						],
 						[]
 					);
-					$heading_widget->print_element();
+					//$widget->print_element();
+
+					$widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+						[
+							'elType' => 'widget',
+							'widgetType' => 'image-box',
+							'id' => 'joboffer-'.$offer->id,
+
+							'settings' => [
+								'_css_classes' => 'tmsm-werecruit-joboffer-item',
+								'title_text' => $offer->title,
+								'title_tag' => 'h3',
+								'position' => 'left',
+								'image_space' => [
+									'unit' => 'px',
+									'size' => '20',
+									'sizes' => [],
+								],
+								'_padding' => [
+									'unit' => 'px',
+									'top' => '20',
+									'left' => '20',
+									'bottom' => '20',
+									'right' => '20',
+									'isLinked' => 1,
+								],
+								'_background_background' => 'classic',
+								'_background_color' => 'white',
+
+								'image' => [
+									'url' => $image,
+								],
+
+								'description_text' => '
+							'.'<p><span class="tmsm-werecruit-joboffer-company">'.$offer->company.'</span></p>
+							'.'<p class="tmsm-werecruit-joboffer-button-wrapper"><a href="'.$offer->url.'" class="button">'.__('Apply','tmsm-werecruit').'</a></p>
+							'.'<p><span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-calendar-alt"></i> '.$offer->contract.'</span>
+							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span></p>
+							',
+							],
+						],
+						[]
+					);
+					$widget->print_element();
 				}
 
 			}

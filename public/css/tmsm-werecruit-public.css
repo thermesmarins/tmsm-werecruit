@@ -1,16 +1,15 @@
-@media (min-width: 768px) {
-  #tmsm-werecruit-container .elementor-cta__bg-wrapper {
-    min-width: 20%;
-  }
-}
 #tmsm-werecruit-container .tmsm-werecruit-joboffer-attribute {
   white-space: nowrap;
   margin-right: 20px;
 }
+#tmsm-werecruit-container .elementor-cta__button-wrapper,
+#tmsm-werecruit-container .tmsm-werecruit-joboffer-button-wrapper {
+  white-space: nowrap;
+}
 @media (min-width: 768px) {
-  #tmsm-werecruit-container .elementor-cta__button-wrapper {
+  #tmsm-werecruit-container .elementor-cta__button-wrapper,
+  #tmsm-werecruit-container .tmsm-werecruit-joboffer-button-wrapper {
     float: right;
-    width: 30%;
     text-align: right;
   }
 }
@@ -20,7 +19,7 @@
 @media (min-width: 768px) {
   #tmsm-werecruit-container .elementor-cta__description {
     float: left;
-    width: 70%;
+    width: 80%;
   }
   #tmsm-werecruit-container .elementor-cta__description *,
   #tmsm-werecruit-container .elementor-cta__description p:last-child {
@@ -31,8 +30,13 @@
   opacity: 0.5;
 }
 #tmsm-werecruit-container select {
-  width: 20%;
-  margin-right: 15px;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  #tmsm-werecruit-container select {
+    width: 20%;
+    margin-right: 15px;
+  }
 }
 #tmsm-werecruit-container #tmsm-werecruit-filterform {
   margin-bottom: 20px;
@@ -45,5 +49,16 @@
 }
 #tmsm-werecruit-container .tmsm-werecruit-joboffer-company {
   font-weight: bold;
+}
+@media (min-width: 768px) {
+  #tmsm-werecruit-container img {
+    margin-right: 30px;
+  }
+}
+#tmsm-werecruit-container .elementor-image-box-content {
+  padding: 15px;
+}
+#tmsm-werecruit-container .elementor-widget-image-box .elementor-image-box-img {
+  width: 40%;
 }
 /*# sourceMappingURL=tmsm-werecruit-public.css.map */

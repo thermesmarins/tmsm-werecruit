@@ -1,3 +1,5 @@
+* Job offer image reduced again to 20%
+
 ### 1.0.6: October 1st, 2020
 * Apply button styling
 * Job offer image reduced

@@ -1,3 +1,6 @@
+* Apply button styling
+* Job offer image reduced
+
 ### 1.0.5: September 28th, 2020
 * Elementor widget changed from CTA to image box
 

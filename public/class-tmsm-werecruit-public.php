@@ -348,7 +348,7 @@ class Tmsm_Werecruit_Public {
 
 								'description_text' => '
 							'.'<p><span class="tmsm-werecruit-joboffer-company">'.$offer->company.'</span></p>
-							'.'<p class="tmsm-werecruit-joboffer-button-wrapper"><a href="'.$offer->url.'" class="button">'.__('Apply','tmsm-werecruit').'</a></p>
+							'.'<p class="tmsm-werecruit-joboffer-button-wrapper"><a href="'.$offer->url.'" class="elementor-button">'.__('Apply','tmsm-werecruit').'</a></p>
 							'.'<p><span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-clipboard"></i> '.$offer->type.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-calendar-alt"></i> '.$offer->contract.'</span>
 							'.'<span class="tmsm-werecruit-joboffer-attribute"><i aria-hidden="true" class="fas fa-map-marker-alt"></i> '.$offer->addressCity.'</span></p>

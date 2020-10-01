@@ -1,3 +1,4 @@
+### 1.0.6: October 1st, 2020
 * Apply button styling
 * Job offer image reduced
 

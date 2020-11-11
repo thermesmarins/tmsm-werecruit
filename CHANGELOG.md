@@ -1,4 +1,5 @@
 * Job offer image reduced again to 20%
+* Fix API call when response was a WP_Error
 
 ### 1.0.6: October 1st, 2020
 * Apply button styling

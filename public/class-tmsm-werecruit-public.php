@@ -390,23 +390,43 @@ class Tmsm_Werecruit_Public {
 
 		$response = wp_remote_get($url, $headers);
 
-		if( empty($response) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
-			error_log('WeRecruit empty response');
-			return;
-		}
-		$response_json = json_decode($response['body']);
-
-		if( empty($response['body']) && defined( 'WP_DEBUG' ) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
-			error_log('WeRecruit empty response body');
+		// Check for errors
+		if ( is_wp_error( $response ) or ( wp_remote_retrieve_response_code( $response ) != 200 ) ) {
+			if(defined( 'WP_DEBUG' ) && WP_DEBUG){
+				error_log('WeRecruit response error');
+			}
 			return;
 		}
 
-		if( (empty($response_json->isSuccessful) ||  $response_json->isSuccessful != 1) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
-			error_log('WeRecruit response not successful');
+		// Get remote body val
+		$body = wp_remote_retrieve_body( $response );
+
+		if( empty($response) ){
+			if(defined( 'WP_DEBUG' ) && WP_DEBUG){
+				error_log('WeRecruit empty response');
+			}
 			return;
 		}
-		if(!is_array($response_json->result) && defined( 'WP_DEBUG' ) && WP_DEBUG ){
-			error_log('WeRecruit response results not an array');
+
+		$response_json = json_decode($body);
+
+		if( empty($body) ){
+			if(defined( 'WP_DEBUG' ) && WP_DEBUG){
+				error_log('WeRecruit empty response body');
+			}
+			return;
+		}
+
+		if( (empty($response_json->isSuccessful) ||  $response_json->isSuccessful != 1) ){
+			if(defined( 'WP_DEBUG' ) && WP_DEBUG){
+				error_log('WeRecruit response not successful');
+			}
+			return;
+		}
+		if(!is_array($response_json->result) ){
+			if(defined( 'WP_DEBUG' ) && WP_DEBUG){
+				error_log('WeRecruit response results not an array');
+			}
 			return;
 		}
 		$sectors = []; // Sector

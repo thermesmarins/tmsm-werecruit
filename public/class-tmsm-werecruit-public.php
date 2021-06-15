@@ -10,6 +10,8 @@
  * @subpackage Tmsm_Werecruit/public
  */
 
+use Elementor\Plugin;
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -238,7 +240,7 @@ class Tmsm_Werecruit_Public {
 	 * Get All Jobs
 	 */
 	private function jobs_all(){
-		return get_option($this->plugin_name . '-offers');;
+		return get_option($this->plugin_name . '-offers');
 	}
 
 	/**
@@ -264,8 +266,10 @@ class Tmsm_Werecruit_Public {
 
 				}
 
+				$image = null; // dont display the image after June 15th 2021
+
 				if(class_exists('\Elementor\Plugin')){
-					$widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+					$widget = Plugin::instance()->elements_manager->create_element_instance(
 						[
 							'elType' => 'widget',
 							'widgetType' => 'call-to-action',
@@ -315,7 +319,7 @@ class Tmsm_Werecruit_Public {
 					);
 					//$widget->print_element();
 
-					$widget = \Elementor\Plugin::instance()->elements_manager->create_element_instance(
+					$widget = Plugin::instance()->elements_manager->create_element_instance(
 						[
 							'elType' => 'widget',
 							'widgetType' => 'image-box',

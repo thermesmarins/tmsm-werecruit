@@ -1,3 +1,6 @@
+#tmsm-werecruit-container .elementor-image-box-title {
+  margin-bottom: 5px;
+}
 #tmsm-werecruit-container .tmsm-werecruit-joboffer-attribute {
   white-space: nowrap;
   margin-right: 20px;
@@ -54,9 +57,6 @@
   #tmsm-werecruit-container img {
     margin-right: 30px;
   }
-}
-#tmsm-werecruit-container .elementor-image-box-content {
-  padding: 15px;
 }
 @media (min-width: 768px) {
   #tmsm-werecruit-container .elementor-widget-image-box .elementor-image-box-img {

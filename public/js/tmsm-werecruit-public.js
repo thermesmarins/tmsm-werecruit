@@ -33,7 +33,7 @@
               $('#tmsm-werecruit-filterresponse').empty().html(data); // insert data
 
               if($skipPushState !== false){
-                history.pushState({}, "", window.location.pathname + "#" + filter.serialize());﻿
+                history.pushState({}, "", window.location.pathname + "#" + filter.serialize());
               }
 
             },

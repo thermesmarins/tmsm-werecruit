@@ -220,9 +220,11 @@ class Tmsm_Werecruit_Public {
 			foreach ($jobs as $job){
 				$match = true;
 				foreach( ['sector', 'jobType', 'type', 'contract', 'addressCity', 'company' ] as $filter_key ){
-					if( (!empty($_POST[$filter_key]) && $job->{$filter_key} != $_POST[$filter_key])){
+
+					if( (!empty($_POST[$filter_key]) && $job->{$filter_key} != stripslashes($_POST[$filter_key]))){
 						$match &= false;
 					}
+
 				}
 				if($match){
 					$jobs_filtered[] = $job;

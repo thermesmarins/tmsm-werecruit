@@ -1,3 +1,4 @@
+### 1.0.8: November 19th, 2021
 * Fix filters alignment
 
 ### 1.0.7: September 16th, 2021

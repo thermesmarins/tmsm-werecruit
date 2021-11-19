@@ -45,7 +45,7 @@
   margin-bottom: 20px;
 }
 #tmsm-werecruit-container #tmsm-werecruit-filterform > * {
-  vertical-align: middle;
+  vertical-align: top;
 }
 #tmsm-werecruit-container .tmsm-werecruit-joboffer-attribute {
   opacity: 0.5;

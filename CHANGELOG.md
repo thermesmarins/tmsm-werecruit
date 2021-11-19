@@ -1,3 +1,5 @@
+* Fix filters alignment
+
 ### 1.0.7: September 16th, 2021
 * Job offer image reduced again to 20%
 * Fix API call when response was a WP_Error

@@ -149,7 +149,7 @@ class Tmsm_Werecruit_Public {
 				wp_specialchars_decode( sprintf( __('TMSM WeRecruit cron is not scheduled on %s', 'tmsm-werecruit'), get_option( 'blogname' ) ) )
 			);
 		}
-
+		
 	}
 
 	/**
@@ -164,14 +164,12 @@ class Tmsm_Werecruit_Public {
 
 		$filters = get_option($this->plugin_name . '-filters');
 
-
-
 		echo '<div id="tmsm-werecruit-container">';
 
 		if(!empty($filters)){
-
 			echo '<form action="'.admin_url('admin-ajax.php').'" method="post" id="tmsm-werecruit-filterform">';
-
+			//sort($filters);
+			//var_dump($filters);
 			foreach ($filters as $filter_key => $filter_values){
 
 				$filter_name = '';
@@ -183,10 +181,14 @@ class Tmsm_Werecruit_Public {
 					case 'addressCity': $filter_name = __('Location', 'tmsm-werecruit');break;
 					case 'company': $filter_name = __('Company', 'tmsm-werecruit');break;
 				}
+
 				if(is_array($filter_values) && $this->get_option($filter_key) === 'yes'){
 					echo '<select id="tmsm-werecruit-'.$filter_key.'" title="'.esc_attr($filter_name).'" name="'.esc_attr($filter_key).'">';
+
 					echo '<option value="">'.$filter_name.'</option>';
+					sort($filter_values);
 					foreach ($filter_values as $filter_value){
+
 						echo '<option value="'.$filter_value.'" '.selected($_REQUEST[$filter_key], $filter_value).'>'.$filter_value.'</option>';
 					}
 					echo '</select>';

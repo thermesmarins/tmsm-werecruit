@@ -149,7 +149,7 @@ class Tmsm_Werecruit_Public {
 				wp_specialchars_decode( sprintf( __('TMSM WeRecruit cron is not scheduled on %s', 'tmsm-werecruit'), get_option( 'blogname' ) ) )
 			);
 		}
-		
+
 	}
 
 	/**

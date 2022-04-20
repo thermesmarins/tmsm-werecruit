@@ -1,5 +1,5 @@
 ### 1.0.9: April 20th, 2022
-* sort filters by alphabetical order
+* Sort filters by alphabetical order
 
 ### 1.0.8: November 19th, 2021
 * Fix filters alignment

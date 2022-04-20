@@ -414,6 +414,7 @@ class Tmsm_Werecruit_Public {
 			return;
 		}
 
+
 		$response_json = json_decode($body);
 
 		if( empty($body) ){

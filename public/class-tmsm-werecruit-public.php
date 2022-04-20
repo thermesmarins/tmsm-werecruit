@@ -168,8 +168,6 @@ class Tmsm_Werecruit_Public {
 
 		if(!empty($filters)){
 			echo '<form action="'.admin_url('admin-ajax.php').'" method="post" id="tmsm-werecruit-filterform">';
-			//sort($filters);
-			//var_dump($filters);
 			foreach ($filters as $filter_key => $filter_values){
 
 				$filter_name = '';

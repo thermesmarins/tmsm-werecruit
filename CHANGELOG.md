@@ -1,3 +1,5 @@
+* Fix PHP notice error on job filters
+
 ### 1.1.0: August 8th, 2022
 * Update translation
 * Requires PHP 7.4

@@ -187,7 +187,9 @@ class Tmsm_Werecruit_Public {
 					sort($filter_values);
 					foreach ($filter_values as $filter_value){
 
-						echo '<option value="'.$filter_value.'" '.selected($_REQUEST[$filter_key], $filter_value).'>'.$filter_value.'</option>';
+						echo '<option value="' . $filter_value . '" ' . ( isset( $_REQUEST[ $filter_key ] ) ? selected( $_REQUEST[ $filter_key ],
+								$filter_value ) : '' ) . '>' . $filter_value . '</option>';
+
 					}
 					echo '</select>';
 

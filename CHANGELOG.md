@@ -1,4 +1,6 @@
+### 1.1.0: August 8th, 2022
 * Update translation
+* Requires PHP 7.4
 
 ### 1.0.9: April 20th, 2022
 * Sort filters by alphabetical order

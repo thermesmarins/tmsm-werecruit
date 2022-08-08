@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -16,10 +15,10 @@
  * Plugin Name:       TMSM WeRecruit
  * Plugin URI:        https://github.com/thermesmarins/tmsm-werecruit
  * Description:       Display Recruit job offers
- * Version:           1.0.9
+ * Version:           1.1.0
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
- * Requires PHP:      7.3
+ * Requires PHP:      7.4
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       tmsm-werecruit
@@ -38,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_WERECRUIT_VERSION', '1.0.9' );
+define( 'TMSM_WERECRUIT_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.

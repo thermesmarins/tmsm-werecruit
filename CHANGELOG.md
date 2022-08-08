@@ -1,3 +1,5 @@
+* Update translation
+
 ### 1.0.9: April 20th, 2022
 * Sort filters by alphabetical order
 

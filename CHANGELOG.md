@@ -1,3 +1,4 @@
+### 1.1.1: August 26th, 2022
 * Fix PHP notice error on job filters
 
 ### 1.1.0: August 8th, 2022
